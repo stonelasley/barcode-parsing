@@ -1,5 +1,5 @@
 {
-  "name": "barcode parser",
+  "name": "barcode-parser",
   "version": "1.0.0",
   "description": "This project started out as a straight port of the Quagga project - https://serratus.github.io/quaggaJS. - to typescript however it has significantly diverged.",
   "repository": "git@github.com:stonelasley/barcode-parsing.git",
