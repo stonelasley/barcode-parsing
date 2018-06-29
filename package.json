@@ -8,8 +8,9 @@
   "scripts": {
     "build": "tsc -d",
     "prepublish": "npm run build",
-    "test": "npm run build && nyc report --reporter=lcov --reporter=text mocha ./lib/test --recursive",
-    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "pretest": "npm run build",
+    "test": "nyc --reporter=html --reporter=text mocha ./lib/test --recursive",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "release": "semantic-release"
   },
