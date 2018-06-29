@@ -1,47 +1,55 @@
-import {expect}                                 from 'chai';
+import {expect} from 'chai';
 
-import {BaseReader}                             from "../../readers/base.reader";
-import {IBarcodeValue, IReaderConfiguration}    from '../../models';
+import {BaseReader} from '../../readers/base.reader';
+import {IBarcodeValue, IReaderConfiguration} from '../../models';
 
 const REG: any = /[0-9]/;
 const SYMBOLOGY: string = 'MYSYMBOLOGY';
 
 class TestReader extends BaseReader {
 
-	public decode(value: string): IBarcodeValue{
-		return <IBarcodeValue>{};
-	}
-
 	constructor(readerConfig?: IReaderConfiguration) {
 		super(SYMBOLOGY, REG, readerConfig);
+	}
+
+	public get config(): any {
+		return this._readerConfig;
+	}
+
+	public validate(val: any): any {
+		return super.validate(val);
+	}
+
+	public decode(value: string): IBarcodeValue {
+		return {} as IBarcodeValue;
 	}
 }
 describe('baseReader', () => {
 
-	let symbology: string;
-	let config = {} as IReaderConfiguration;
+	const config = {} as IReaderConfiguration;
 	let classUnderTest: TestReader;
-
 
 	beforeEach(() => {
 		classUnderTest = new TestReader(config);
 	});
 
 	it('should set symbology', () => {
-		classUnderTest = new TestReader(<IReaderConfiguration>{});
+		classUnderTest = new TestReader({} as IReaderConfiguration);
 		expect(classUnderTest.symbology).to.equal(SYMBOLOGY);
 	});
 
 	it('should set readerConfig', () => {
 		classUnderTest = new TestReader(config);
-		expect(classUnderTest['_readerConfig']).to.equal(config);
+		expect(classUnderTest.config).to.equal(config);
 	});
 
 	describe('validate', () => {
 
 		it('should validate using validationExpression', () => {
-				expect(classUnderTest['validate']('1')).to.be.true;
-				expect(classUnderTest['validate']('a')).to.be.false;
+			/* tslint:disable */
+			expect(classUnderTest.validate('1')).to.be.true;
+			expect(classUnderTest.validate('a')).to.be.false;
+			/* tslint:enable */
 		});
 	});
 });

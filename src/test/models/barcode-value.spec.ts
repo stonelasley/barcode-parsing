@@ -1,12 +1,12 @@
-import { expect }                       from 'chai';
+import { expect } from 'chai';
 
-import { IBarcodeValue, BarcodeValue }  from '../../models';
+import { IBarcodeValue, BarcodeValue } from '../../models';
 
 describe('BarcodeValue', () => {
 
 	let classUnderTest: IBarcodeValue;
-	let symbology: string = 'MYSYMBOLOGY';
-	let rawVal = '123456';
+	const symbology: string = 'MYSYMBOLOGY';
+	const rawVal = '123456';
 
 	beforeEach(() => {
 		classUnderTest = new BarcodeValue(symbology, rawVal);
@@ -26,8 +26,8 @@ describe('BarcodeValue', () => {
 			classUnderTest.values = [
 				{
 					code: '01',
-					value: 'abcd'
-				}
+					value: 'abcd',
+				},
 			];
 
 			expect(classUnderTest.pluck('01')).to.equal('abcd');
@@ -37,15 +37,15 @@ describe('BarcodeValue', () => {
 			classUnderTest.values = [
 				{
 					code: '01',
-					value: 'abcd'
-				}
+					value: 'abcd',
+				},
 			];
 
 			expect(classUnderTest.pluck('04')).to.equal(undefined);
 		});
 
 		it('should return undefined for non-array values', () => {
-		    classUnderTest.values = "i am a string";
+			classUnderTest.values = 'i am a string';
 
 			expect(classUnderTest.pluck('04')).to.equal(undefined);
 

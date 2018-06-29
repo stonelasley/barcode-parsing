@@ -1,29 +1,37 @@
-import { expect }                 from 'chai';
-import { IReaderConfiguration }   from "../../models/reader.configuration";
-import { Code39Reader }           from "../../readers/code-39.reader";
-import { AIM_CODES }              from '../../config/aim-codes';
+import { expect } from 'chai';
+import { IReaderConfiguration } from '../../models/reader.configuration';
+import { Code39Reader } from '../../readers/code-39.reader';
+import { AIM_CODES } from '../../config/aim-codes';
 
+export class TestClass extends Code39Reader {
+	public decode(val: any): any {
+		return this.decode(val);
+	}
 
+	public validate(val: any): any {
+		return this.validate(val);
+	}
+}
 describe('code39Reader', () => {
 
-	let config = {} as IReaderConfiguration;
-	let classUnderTest: Code39Reader;
+	const config = {} as IReaderConfiguration;
+	let classUnderTest: TestClass;
 
-	let decodeValues: string[] = [
+	const decodeValues: string[] = [
 		AIM_CODES.CODE39 + 'P0010065330101',
 		AIM_CODES.CODE39 + 'I0010065330101',
 		AIM_CODES.CODE39 + 'M0010065330101',
 		AIM_CODES.CODE39 + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-$%.+/',
-		AIM_CODES.CODE39 + 'A'
+		AIM_CODES.CODE39 + 'A',
 	];
 
-	let invalidValues: string[] = [
+	const invalidValues: string[] = [
 		']B011111111111111111111111111111111111111111111',
 		']A011111111111111111111111111111111111111111111',
 		'ABCDEFGhIJKLMNOPQRSTUVWXYZ1234567890-$%.+/',
 		'',
 		'~11223344',
-		'1122#3344'
+		'1122#3344',
 	];
 
 	beforeEach(() => {
@@ -33,30 +41,33 @@ describe('code39Reader', () => {
 	describe('decode', () => {
 
 		it('should include symbology in result', () => {
-			let result = classUnderTest.decode(decodeValues[0]);
+			const result = classUnderTest.decode(decodeValues[0]);
 			expect(result.symbology).to.equal('code_39');
 		});
 
 		it('should include rawValue in result', () => {
-			let result = classUnderTest.decode(decodeValues[1]);
+			const result = classUnderTest.decode(decodeValues[1]);
 			expect(result.rawValue).to.equal(decodeValues[1]);
 		});
 	});
 
 	describe('validate', () => {
 
-		decodeValues.forEach(function (value) {
+		decodeValues.forEach(value => {
 			it('should return true for valid value: ' + value, () => {
-				expect(classUnderTest['validate'](value)).to.be.true;
+				/* tslint:disable */
+				expect(classUnderTest.validate(value)).to.be.true;
+				/* tslint:enable */
 			});
 		});
 
-		invalidValues.forEach(function (value) {
+		invalidValues.forEach(value => {
 			it('should return false for invalid value: ' + value, () => {
-				expect(classUnderTest['validate'](value)).to.be.false;
+				/* tslint:disable */
+				expect(classUnderTest.validate(value)).to.be.false;
+				/* tslint:enable */
 			});
 		});
 	});
-
 
 });
