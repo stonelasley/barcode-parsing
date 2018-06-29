@@ -1,0 +1,16 @@
+sudo: required
+dist: trusty
+git:
+  depth: 1
+language: node_js
+node_js:
+- stable
+cache:
+  directories:
+    - node_modules
+matrix:
+  fast_finish: true
+install:
+  - yarn install
+script:
+  - yarn ci

@@ -10,7 +10,7 @@
     "prepublish": "npm run build",
     "test": "npm run build && mocha ./lib/test --recursive",
     "lint": "tslint --fix -c tslint.json 'src/**/*.ts'",
-    "ci": "yarn lint && yarn yarn test"
+    "ci": "yarn test"
   },
   "author": "stonelasley@github.com",
   "license": "MIT",
