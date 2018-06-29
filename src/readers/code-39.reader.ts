@@ -1,7 +1,7 @@
 import { BaseReader } from './base.reader';
 import { IReaderConfiguration } from '../models/reader.configuration';
 import { IBarcodeValue, BarcodeValue } from '../models';
-import { AIM_CODES } from '../config/aim-codes';
+import { AIMCODES } from '../config/aim-codes';
 import { AimParser } from '../utils/aim-parser';
 
 const REG: any = /^[A-Z0-9* \-$%.+\/]{1,43}$/;
@@ -41,7 +41,7 @@ export class Code39Reader extends BaseReader {
 	}
 
 	public validate(value: string): boolean {
-		const aimPrefix = value.indexOf(AIM_CODES.CODE39);
+		const aimPrefix = value.indexOf(AIMCODES.CODE39);
 		return aimPrefix === 0 && super.validate(AimParser.parseAimCode(this.symbology, value));
 	}
 

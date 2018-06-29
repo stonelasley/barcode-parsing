@@ -1,17 +1,17 @@
-import { READER_TYPES }                from './readers';
+import { READER_TYPES } from './readers';
 import { IBarcodeValue, BarcodeValue } from './models';
-import { IParserConfiguration }        from './models/parser.configuration';
-import { IReaderConfiguration }        from './models/reader.configuration';
+import { IParserConfiguration } from './models/parser.configuration';
+import { IReaderConfiguration } from './models/reader.configuration';
 
 export class BarcodeParser {
 
-	private _barcodeReaders: any;
-	public get barcodeReaders(): any {
-		return this._barcodeReaders;
+	private _readers: any;
+	public get readers(): any {
+		return this._readers;
 	}
 
 	public set readers(value: any) {
-		this._barcodeReaders = value;
+		this._readers = value;
 	}
 
 	constructor(config: IParserConfiguration) {
@@ -21,7 +21,7 @@ export class BarcodeParser {
 	public parse(barcodeVal: any): IBarcodeValue {
 		let result: IBarcodeValue = null;
 
-		this.barcodeReaders.forEach((reader) => {
+		this._readers.forEach((reader) => {
 			if (reader.validate(barcodeVal)) {
 				result = reader.decode(barcodeVal);
 			}
@@ -36,22 +36,19 @@ export class BarcodeParser {
 	}
 
 	protected initReaders(readerTypes: string[], configurations: IReaderConfiguration[]) {
-		this._barcodeReaders = readerTypes.map(function(r) {
+		this.readers = readerTypes.map(r => {
 			let readerConfig: IReaderConfiguration;
 			if (configurations.length > 0) {
-				const configs = configurations.filter((c) => {
-					return c !== undefined && r === c.symbology;
-				});
+				const configs = configurations.filter(c => c !== undefined && r === c.symbology);
 				readerConfig = configs.pop();
 			}
 			if (READER_TYPES[r]) {
 				return new READER_TYPES[r](readerConfig);
-
 			}
 		});
 
-		this.barcodeReaders.forEach((reader) => {
-			console.log('Reader Initialized: ', reader);
-		});
+			/* tslint:disable */
+		this._readers.forEach(reader => console.log('Reader Initialized: ', reader));
+			/* tslint:enable */
 	}
 }

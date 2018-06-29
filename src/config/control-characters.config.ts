@@ -1,1 +1,1 @@
-export const CONTROL_CHARS = [29];
+export const CONTROLCHARS = [29];

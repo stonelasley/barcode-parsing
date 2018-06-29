@@ -20,12 +20,18 @@ export class ApplicationIdentifier {
 		return this._code.length + this._length + (this.fractional === true ? 1 : 0);
 	}
 
-	private _fractional = false;
+	private frac = false;
 	public get fractional(): boolean {
-		return this._fractional;
+		return this.frac;
 	}
 
-	constructor(private _code: string, private _description: string, private _length: number, private _variableLength: boolean, fractional?: boolean) {
-		this._fractional = fractional || false;
+	constructor(
+		private _code: string,
+		private _description: string,
+		private _length: number,
+		private _variableLength: boolean,
+		fractional?: boolean) {
+
+		this.frac = fractional || false;
 	}
 }

@@ -8,7 +8,8 @@
         "indent": [true, "tabs", 2],
         "quotemark": [true, "single"],
         "ordered-imports": false,
-        "arrow-parens": false
+        "arrow-parens": false,
+        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"]
     },
     "rulesDirectory": []
 }

@@ -1,5 +1,5 @@
 import { Symbologies } from './../config/symbologies';
-import { AIM_CODES } from '../config/aim-codes';
+import { AIMCODES } from '../config/aim-codes';
 
 export class AimParser {
 
@@ -7,25 +7,25 @@ export class AimParser {
 
 		switch (symbology) {
 			case Symbologies.GTIN8:
-				return value.replace(AIM_CODES.GTIN, '');
+				return value.replace(AIMCODES.GTIN, '');
 			case Symbologies.GTIN12:
-				return value.replace(AIM_CODES.GTIN, '');
+				return value.replace(AIMCODES.GTIN, '');
 			case Symbologies.GTIN13:
-				return value.replace(AIM_CODES.GTIN, '');
+				return value.replace(AIMCODES.GTIN, '');
 			case Symbologies.GTIN14:
-				return value.replace(AIM_CODES.GTIN, '');
+				return value.replace(AIMCODES.GTIN, '');
 			case Symbologies.ITF8:
-				return value.replace(AIM_CODES.ITF, '');
+				return value.replace(AIMCODES.ITF, '');
 			case Symbologies.ITF12:
-				return value.replace(AIM_CODES.ITF, '');
+				return value.replace(AIMCODES.ITF, '');
 			case Symbologies.ITF13:
-				return value.replace(AIM_CODES.ITF, '');
+				return value.replace(AIMCODES.ITF, '');
 			case Symbologies.ITF14:
-				return value.replace(AIM_CODES.ITF, '');
+				return value.replace(AIMCODES.ITF, '');
 			case Symbologies.GS1128:
-				return value.replace(AIM_CODES.GS1, '');
+				return value.replace(AIMCODES.GS1, '');
 			case Symbologies.Code39:
-				return value.replace(AIM_CODES.CODE39, '');
+				return value.replace(AIMCODES.CODE39, '');
 			default:
 				return value;
 		}

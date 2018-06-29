@@ -1,4 +1,4 @@
-export class AIM_CODES {
+export class AIMCODES {
 
 	public static get GS1(): string {
 		return ']C1';

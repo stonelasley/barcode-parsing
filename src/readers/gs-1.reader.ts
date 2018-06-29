@@ -1,12 +1,12 @@
-import { BaseReader }              from '../readers/base.reader';
-import { IReaderConfiguration }    from '../models/reader.configuration';
-import { IBarcodeValue }           from '../models/ibarcode-value';
-import { ApplicationIdentifier }   from '../models/application-identifier';
-import { BarcodeValue }            from '../models/barcode-value';
+import { BaseReader } from '../readers/base.reader';
+import { IReaderConfiguration } from '../models/reader.configuration';
+import { IBarcodeValue } from '../models/ibarcode-value';
+import { ApplicationIdentifier } from '../models/application-identifier';
+import { BarcodeValue } from '../models/barcode-value';
 import { APPLICATION_IDENTIFIERS } from '../models/application-identifiers';
-import { CONTROL_CHARS }           from '../config/control-characters.config';
-import { AIM_CODES }               from '../config/aim-codes';
-import { AimParser }               from '../utils/aim-parser';
+import { CONTROLCHARS } from '../config/control-characters.config';
+import { AIMCODES } from '../config/aim-codes';
+import { AimParser } from '../utils/aim-parser';
 
 const SYMBOLOGY: string = 'gs1_128';
 const DELIMITER: string = ' ';
@@ -17,16 +17,8 @@ export class GS1Reader extends BaseReader {
 		super(SYMBOLOGY, null, readerConfig);
 	}
 
-	protected removeControlCharacters(value: string): string {
-		let result = value;
-		CONTROL_CHARS.forEach((charCode) => {
-			result = result.replace(String.fromCharCode(charCode), DELIMITER);
-		});
-		return result;
-	}
-
 	public validate(value: string): boolean {
-		const idPrefix = value.indexOf(AIM_CODES.GS1);
+		const idPrefix = value.indexOf(AIMCODES.GS1);
 		const valueLength = AimParser.parseAimCode(this.symbology, value).length;
 		return idPrefix === 0 && valueLength > 0;
 	}
@@ -42,6 +34,14 @@ export class GS1Reader extends BaseReader {
 			result.success = false;
 			result.errorMessage = ex;
 		}
+		return result;
+	}
+
+	protected removeControlCharacters(value: string): string {
+		let result = value;
+		CONTROLCHARS.forEach((charCode) => {
+			result = result.replace(String.fromCharCode(charCode), DELIMITER);
+		});
 		return result;
 	}
 
@@ -62,13 +62,13 @@ export class GS1Reader extends BaseReader {
 		return ai;
 	}
 
-	protected parseValue(ai: ApplicationIdentifier, input: string): Object {
+	protected parseValue(ai: ApplicationIdentifier, input: string): object {
 		let val: any = null;
 		if (ai.fractional !== true) {
 			val = input.substr(ai.code.length, ai.length);
 		} else {
-			const scale = Number(input.charAt(ai.code.length)),
-				num = input.substr(ai.code.length + 1, ai.length);
+			const scale = Number(input.charAt(ai.code.length));
+			const num = input.substr(ai.code.length + 1, ai.length);
 
 			val = Number(num) / Math.pow(10, scale);
 		}
@@ -79,9 +79,9 @@ export class GS1Reader extends BaseReader {
 		};
 	}
 
-	protected parseValues(input: string): Object[] {
-		let vals = Array<Object>(),
-			ai = this.findAi(input);
+	protected parseValues(input: string): object[] {
+		let vals = Array<object>();
+		const ai = this.findAi(input);
 
 		if (input.length > ai.totalLength) {
 			vals = vals.concat(this.parseValues(input.substr(ai.totalLength)));

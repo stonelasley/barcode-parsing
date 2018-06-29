@@ -2,6 +2,11 @@ import { IBarcodeValue } from './ibarcode-value';
 
 export class BarcodeValue implements IBarcodeValue {
 
+	private _values: any;
+	private _errorMessage: string;
+	private _success: boolean;
+	private _checkDigit: number = -1;
+
 	constructor(private _symbology: string, private _rawValue: string) {
 		this._success = true;
 		this.values = [];
@@ -23,7 +28,6 @@ export class BarcodeValue implements IBarcodeValue {
 		this._rawValue = value;
 	}
 
-	private _values: any;
 	public get values(): any {
 		return this._values;
 	}
@@ -32,7 +36,6 @@ export class BarcodeValue implements IBarcodeValue {
 		this._values = value;
 	}
 
-	private _errorMessage: string;
 	public get errorMessage(): string {
 		return this._errorMessage;
 	}
@@ -41,7 +44,6 @@ export class BarcodeValue implements IBarcodeValue {
 		this._errorMessage = value;
 	}
 
-	private _success: boolean;
 	public get success(): boolean {
 		return this._success;
 	}
@@ -50,7 +52,6 @@ export class BarcodeValue implements IBarcodeValue {
 		this._success = value;
 	}
 
-	private _checkDigit: number = -1;
 	public get checkDigit(): number {
 		return this._checkDigit;
 	}
@@ -69,5 +70,4 @@ export class BarcodeValue implements IBarcodeValue {
 			}
 		}
 	}
-
 }

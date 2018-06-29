@@ -1,5 +1,5 @@
 import { IReaderConfiguration } from '../models/reader.configuration';
-import { BaseGtinReader }       from './base-gtin.reader';
+import { BaseGtinReader } from './base-gtin.reader';
 
 const REG: any = /^\]E[0-9]{14,14}$/;
 const SYMBOLOGY: string = 'gtin_14';

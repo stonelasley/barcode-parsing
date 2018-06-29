@@ -1,5 +1,5 @@
 import { IReaderConfiguration } from '../models/reader.configuration';
-import { BaseGtinReader }       from './base-gtin.reader';
+import { BaseGtinReader } from './base-gtin.reader';
 
 const REG: any = /^\]I0[0-9]{13,13}$/;
 const SYMBOLOGY: string = 'itf_13';

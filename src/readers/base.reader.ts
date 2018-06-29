@@ -3,7 +3,10 @@ import { IBarcodeValue } from '../models';
 
 export abstract class BaseReader {
 
-	constructor(protected _symbology: string, protected _validationExpression: any,  protected _readerConfig: IReaderConfiguration) {}
+	constructor(
+		protected _symbology: string,
+		protected _validationExpression: any,
+		protected _readerConfig: IReaderConfiguration) {}
 
 	public get configuration(): IReaderConfiguration {
 		return this._readerConfig;
