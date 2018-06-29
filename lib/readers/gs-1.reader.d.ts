@@ -4,10 +4,10 @@ import { IBarcodeValue } from '../models/ibarcode-value';
 import { ApplicationIdentifier } from '../models/application-identifier';
 export declare class GS1Reader extends BaseReader {
     constructor(readerConfig?: IReaderConfiguration);
-    protected removeControlCharacters(value: string): string;
     validate(value: string): boolean;
     decode(value: string): IBarcodeValue;
+    protected removeControlCharacters(value: string): string;
     protected findAi(value: string): ApplicationIdentifier;
-    protected parseValue(ai: ApplicationIdentifier, input: string): Object;
-    protected parseValues(input: string): Object[];
+    protected parseValue(ai: ApplicationIdentifier, input: string): object;
+    protected parseValues(input: string): object[];
 }

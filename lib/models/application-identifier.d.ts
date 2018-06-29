@@ -8,7 +8,7 @@ export declare class ApplicationIdentifier {
     readonly variableLength: boolean;
     readonly description: string;
     readonly totalLength: number;
-    private _fractional;
+    private frac;
     readonly fractional: boolean;
     constructor(_code: string, _description: string, _length: number, _variableLength: boolean, fractional?: boolean);
 }
