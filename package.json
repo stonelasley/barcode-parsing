@@ -1,0 +1,32 @@
+{
+  "name": "barcode parser",
+  "version": "1.0.0",
+  "description": "This project started out as a straight port of the Quagga project - https://serratus.github.io/quaggaJS. - to typescript however it has significantly diverged.",
+  "repository": "git@github.com:stonelasley/barcode-parsing.git",
+  "typings": "lib/index.d.ts",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "tsc -d",
+    "prepublish": "npm run build",
+    "test": "npm run build && mocha ./lib/test --recursive",
+    "lint": "tslint --fix -c tslint.json 'src/**/*.ts'",
+    "ci": "yarn lint && yarn yarn test"
+  },
+  "author": "stonelasley@github.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.39",
+    "chai": "^3.5.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "mocha": "^3.0.2",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {}
+}

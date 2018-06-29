@@ -1,0 +1,1 @@
+export const CONTROL_CHARS = [29];

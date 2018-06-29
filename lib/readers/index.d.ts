@@ -1,0 +1,24 @@
+import { Code39Reader } from './code-39.reader';
+import { Gtin8Reader } from './gtin-8.reader';
+import { Gtin12Reader } from './gtin-12.reader';
+import { Gtin13Reader } from './gtin-13.reader';
+import { Gtin14Reader } from './gtin-14.reader';
+import { GS1Reader } from './gs-1.reader';
+import { Itf8Reader } from './itf-8.reader';
+import { Itf12Reader } from './itf-12.reader';
+import { Itf13Reader } from './itf-13.reader';
+import { Itf14Reader } from './itf-14.reader';
+export { Code39Reader, Gtin8Reader, Gtin12Reader, Gtin13Reader, Gtin14Reader, Itf8Reader, Itf12Reader, Itf13Reader, Itf14Reader, GS1Reader, };
+export declare const READERS: (typeof Code39Reader)[];
+export declare const READER_TYPES: {
+    code_39: typeof Code39Reader;
+    gs1_128: typeof GS1Reader;
+    gtin_12: typeof Gtin12Reader;
+    gtin_13: typeof Gtin13Reader;
+    gtin_14: typeof Gtin14Reader;
+    gtin_8: typeof Gtin8Reader;
+    itf_12: typeof Itf12Reader;
+    itf_13: typeof Itf13Reader;
+    itf_14: typeof Itf14Reader;
+    itf_8: typeof Itf8Reader;
+};
