@@ -3,4 +3,5 @@ export declare class AIMCODES {
     static readonly GTIN: string;
     static readonly ITF: string;
     static readonly CODE39: string;
+    static readonly CODE128: string;
 }

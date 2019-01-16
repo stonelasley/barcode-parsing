@@ -12,4 +12,5 @@ export declare class Symbologies {
     static readonly ITF13: string;
     static readonly ITF14: string;
     static readonly GS1128: string;
+    static readonly Code128: string;
 }

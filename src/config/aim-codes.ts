@@ -15,4 +15,8 @@ export class AIMCODES {
 	public static get CODE39(): string {
 		return ']A0';
 	}
+
+	public static get CODE128(): string {
+		return ']C0';
+	}
 }

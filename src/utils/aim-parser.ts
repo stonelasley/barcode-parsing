@@ -26,6 +26,8 @@ export class AimParser {
 				return value.replace(AIMCODES.GS1, '');
 			case Symbologies.Code39:
 				return value.replace(AIMCODES.CODE39, '');
+			case Symbologies.Code128:
+				return value.replace(AIMCODES.CODE128, '');
 			default:
 				return value;
 		}

@@ -47,5 +47,8 @@ describe('AimParser', () => {
 			expect(AimParser.parseAimCode(Symbologies.Code39, AIMCODES.CODE39 + value)).to.equal(value);
 		});
 
+		it('should strip AIM Code from CODE_128', () => {
+			expect(AimParser.parseAimCode(Symbologies.Code128, AIMCODES.CODE128 + value)).to.equal(value);
+		});
 	});
 });
