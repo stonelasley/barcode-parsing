@@ -197,29 +197,29 @@ describe('Code128Reader', () => {
 	});
 
 	it('should parse known Code128s', () => {
-		// const actual = classUnderTest.decode(']C0019628329083134011150523310200059421145143242042');
-		// const actual1 = classUnderTest.decode(']C0019628329083947611150529310200178721145149307335');
-		// const actual2 = classUnderTest.decode(']C002084135560009503703 10ES003472002');
-		// const actual3 = classUnderTest.decode('[C002084135560009503703 10ES003472002'.replace(' ', String.fromCharCode(29)));
+		const actual = classUnderTest.decode(']C0019628329083134011150523310200059421145143242042');
+		const actual1 = classUnderTest.decode(']C0019628329083947611150529310200178721145149307335');
+		const actual2 = classUnderTest.decode(']C002084135560009503703 10ES003472002');
+		const actual3 = classUnderTest.decode(']C002084135560009503703 10ES003472002'.replace(' ', String.fromCharCode(29)));
 		const actual4 = classUnderTest.decode(']C00110606322100502 10CHPA2777001');
 
-		// expect(actual.values).to.include({code: '21', value: '145143242042'});
-		// expect(actual.values).to.include({code: '310', value: 5.94});
-		// expect(actual.values).to.include({code: '11', value: '150523'});
-		// expect(actual.values).to.include({code: '01', value: '96283290831340'});
+		expect(actual.values).to.include({code: '21', value: '145143242042'});
+		expect(actual.values).to.include({code: '310', value: 5.94});
+		expect(actual.values).to.include({code: '11', value: '150523'});
+		expect(actual.values).to.include({code: '01', value: '96283290831340'});
 
-		// expect(actual1.values).to.include({code: '21', value: '145149307335'});
-		// expect(actual1.values).to.include({code: '310', value: 17.87});
-		// expect(actual1.values).to.include({code: '11', value: '150529'});
-		// expect(actual1.values).to.include({code: '01', value: '96283290839476'});
+		expect(actual1.values).to.include({code: '21', value: '145149307335'});
+		expect(actual1.values).to.include({code: '310', value: 17.87});
+		expect(actual1.values).to.include({code: '11', value: '150529'});
+		expect(actual1.values).to.include({code: '01', value: '96283290839476'});
 
-		// expect(actual2.values).to.include({code: '02', value: '08413556000950'});
-		// expect(actual2.values).to.include({code: '37', value: '03'});
-		// expect(actual2.values).to.include({code: '10', value: 'ES003472002'});
+		expect(actual2.values).to.include({code: '02', value: '08413556000950'});
+		expect(actual2.values).to.include({code: '37', value: '03'});
+		expect(actual2.values).to.include({code: '10', value: 'ES003472002'});
 
-		// expect(actual3.values).to.include({code: '02', value: '08413556000950'});
-		// expect(actual3.values).to.include({code: '37', value: '03'});
-		// expect(actual3.values).to.include({code: '10', value: 'ES003472002'});
+		expect(actual3.values).to.include({code: '02', value: '08413556000950'});
+		expect(actual3.values).to.include({code: '37', value: '03'});
+		expect(actual3.values).to.include({code: '10', value: 'ES003472002'});
 
 		expect(actual4.values).to.include({code: '01', value: '10606322100502'});
 		expect(actual4.values).to.include({code: '10', value: 'CHPA2777001'});
