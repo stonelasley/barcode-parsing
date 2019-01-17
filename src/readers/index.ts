@@ -8,9 +8,11 @@ import { Itf8Reader } from './itf-8.reader';
 import { Itf12Reader } from './itf-12.reader';
 import { Itf13Reader } from './itf-13.reader';
 import { Itf14Reader } from './itf-14.reader';
+import { Code128Reader } from './code-128.reader';
 
 export {
 	Code39Reader,
+        Code128Reader,
 	Gtin8Reader,
 	Gtin12Reader,
 	Gtin13Reader,
@@ -24,6 +26,7 @@ export {
 
 export const READERS = [
 	Code39Reader,
+        Code128Reader,
 	Gtin8Reader,
 	Gtin12Reader,
 	Gtin13Reader,
@@ -37,6 +40,7 @@ export const READERS = [
 
 export const READER_TYPES = {
 	code_39: Code39Reader,
+	code_128: Code128Reader,
 	gs1_128: GS1Reader,
 	gtin_12: Gtin12Reader,
 	gtin_13: Gtin13Reader,

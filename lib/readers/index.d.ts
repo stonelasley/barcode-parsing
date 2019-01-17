@@ -8,10 +8,12 @@ import { Itf8Reader } from './itf-8.reader';
 import { Itf12Reader } from './itf-12.reader';
 import { Itf13Reader } from './itf-13.reader';
 import { Itf14Reader } from './itf-14.reader';
-export { Code39Reader, Gtin8Reader, Gtin12Reader, Gtin13Reader, Gtin14Reader, Itf8Reader, Itf12Reader, Itf13Reader, Itf14Reader, GS1Reader, };
+import { Code128Reader } from './code-128.reader';
+export { Code39Reader, Code128Reader, Gtin8Reader, Gtin12Reader, Gtin13Reader, Gtin14Reader, Itf8Reader, Itf12Reader, Itf13Reader, Itf14Reader, GS1Reader, };
 export declare const READERS: (typeof Code39Reader)[];
 export declare const READER_TYPES: {
     code_39: typeof Code39Reader;
+    code_128: typeof Code128Reader;
     gs1_128: typeof GS1Reader;
     gtin_12: typeof Gtin12Reader;
     gtin_13: typeof Gtin13Reader;

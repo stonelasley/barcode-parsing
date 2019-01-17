@@ -3,6 +3,7 @@ export class Symbologies {
 	public static get All(): string[] {
 		return [
 			this.Code39,
+                        this.Code128,
 			this.GS1128,
 			...this.GTINX,
 			...this.ITFX,
@@ -67,4 +68,7 @@ export class Symbologies {
 		return 'gs1_128';
 	}
 
+	public static get Code128(): string {
+		return 'code_128';
+	}
 }
