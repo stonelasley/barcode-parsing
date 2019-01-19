@@ -6,8 +6,7 @@ const SYMBOLOGY: string = 'gtin_8';
 const LENGTH: number = 8;
 
 export class Gtin8Reader extends BaseGtinReader {
-
-	constructor(readerConfig?: IReaderConfiguration) {
-		super(SYMBOLOGY, REG, LENGTH, readerConfig);
-	}
+    constructor(readerConfig?: IReaderConfiguration) {
+        super(SYMBOLOGY, REG, LENGTH, readerConfig);
+    }
 }

@@ -6,8 +6,7 @@ const SYMBOLOGY: string = 'itf_14';
 const LENGTH: number = 14;
 
 export class Itf14Reader extends BaseGtinReader {
-
-	constructor(readerConfig?: IReaderConfiguration) {
-		super(SYMBOLOGY, REG, LENGTH, readerConfig);
-	}
+    constructor(readerConfig?: IReaderConfiguration) {
+        super(SYMBOLOGY, REG, LENGTH, readerConfig);
+    }
 }

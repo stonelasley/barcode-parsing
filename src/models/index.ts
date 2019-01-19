@@ -3,9 +3,4 @@ import { IBarcodeValue } from './ibarcode-value';
 import { IReaderConfiguration } from './reader.configuration';
 import { IParserConfiguration } from './parser.configuration';
 
-export {
-	BarcodeValue,
-	IBarcodeValue,
-	IReaderConfiguration,
-	IParserConfiguration,
-};
+export { BarcodeValue, IBarcodeValue, IReaderConfiguration, IParserConfiguration };

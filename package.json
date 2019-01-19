@@ -12,6 +12,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
+    "prettier": "prettier --config .prettierrc --write \"{src,__{tests,mocks}__}/**/*.ts\"",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "release": "semantic-release"
   },
@@ -25,6 +26,7 @@
     "coveralls": "^3.0.1",
     "cz-conventional-changelog": "^2.1.0",
     "jest": "^23.6.0",
+    "prettier": "1.15.3",
     "semantic-release": "^15.6.0",
     "ts-jest": "^23.10.5",
     "tslint": "^5.10.0",
