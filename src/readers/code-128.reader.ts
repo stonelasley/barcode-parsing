@@ -5,16 +5,16 @@ import { ApplicationIdentifier } from '../models/application-identifier';
 import { BarcodeValue } from '../models/barcode-value';
 import { APPLICATION_IDENTIFIERS } from '../models/application-identifiers';
 import { CONTROLCHARS } from '../config/control-characters.config';
+import { Symbologies } from '../config/symbologies';
 import { AIMCODES } from '../config/aim-codes';
 import { AimParser } from '../utils/aim-parser';
 
-const SYMBOLOGY: string = 'code_128';
 const DELIMITER: string = ' ';
 
 export class Code128Reader extends BaseReader {
 
 	constructor(readerConfig?: IReaderConfiguration) {
-		super(SYMBOLOGY, null, readerConfig);
+		super(Symbologies.Code128, null, readerConfig);
 	}
 
 	public validate(value: string): boolean {

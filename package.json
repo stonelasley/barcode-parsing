@@ -8,9 +8,10 @@
   "scripts": {
     "build": "tsc -d",
     "prepublish": "npm run build",
-    "pretest": "npm run build",
-    "test": "nyc --reporter=html --reporter=text mocha ./lib/test --recursive",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "release": "semantic-release"
   },
@@ -20,16 +21,14 @@
     "@semantic-release/changelog": "^2.1.1",
     "@semantic-release/git": "^6.0.1",
     "@semantic-release/github": "^4.2.18",
-    "@types/chai": "^3.4.34",
-    "@types/mocha": "^2.2.39",
-    "chai": "^3.5.0",
+    "@types/jest": "^23.3.12",
     "coveralls": "^3.0.1",
     "cz-conventional-changelog": "^2.1.0",
-    "mocha": "^3.0.2",
-    "nyc": "^12.0.2",
+    "jest": "^23.6.0",
     "semantic-release": "^15.6.0",
+    "ts-jest": "^23.10.5",
     "tslint": "^5.10.0",
-    "typescript": "^2.9.2"
+    "typescript": "^3.2.4"
   },
   "config": {
     "commitizen": {
