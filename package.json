@@ -9,7 +9,6 @@
     "build": "tsc -d",
     "prepublish": "npm run build",
     "test": "jest",
-    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "prettier": "prettier --config .prettierrc --write \"{src,__{tests,mocks}__}/**/*.ts\"",
