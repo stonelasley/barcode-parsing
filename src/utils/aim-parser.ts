@@ -1,5 +1,4 @@
-import { Symbologies } from './../config/symbologies';
-import { AIMCODES } from '../config/aim-codes';
+import { AIMCODES, Symbologies } from './../config';
 
 export class AimParser {
     public static parseAimCode(symbology: string, value: string): string {

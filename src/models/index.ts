@@ -1,6 +1,7 @@
-import { BarcodeValue } from './barcode-value';
-import { IBarcodeValue } from './ibarcode-value';
-import { IReaderConfiguration } from './reader.configuration';
-import { IParserConfiguration } from './parser.configuration';
-
-export { BarcodeValue, IBarcodeValue, IReaderConfiguration, IParserConfiguration };
+export * from './application-identifier';
+export * from './application-identifiers';
+export * from './barcode-value';
+export * from './embedded-data';
+export * from './ibarcode-value';
+export * from './parser.configuration';
+export * from './reader.configuration';

@@ -1,5 +1,4 @@
-import { IReaderConfiguration } from '../models/reader.configuration';
-import { IBarcodeValue } from '../models';
+import { IBarcodeValue, IReaderConfiguration } from '../models';
 
 export abstract class BaseReader {
     constructor(

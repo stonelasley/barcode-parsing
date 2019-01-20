@@ -1,13 +1,12 @@
 import { BaseGtinReader } from '../../readers/base-gtin.reader';
 import { IReaderConfiguration } from '../../models';
 
-const REG: any = /[0-9]/;
+const REG: RegExp = /[0-9]/;
 const SYMBOLOGY: string = 'MYSYMBOLOGY';
-const LENGTH: number = 5;
 
 class TestReader extends BaseGtinReader {
     constructor(readerConfig?: IReaderConfiguration) {
-        super(SYMBOLOGY, REG, LENGTH, readerConfig);
+        super(SYMBOLOGY, REG, readerConfig);
     }
 
     public checkDigit(value: string): any {

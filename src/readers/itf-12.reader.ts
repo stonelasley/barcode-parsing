@@ -1,6 +1,6 @@
-import { IReaderConfiguration } from '../models/reader.configuration';
+import { IReaderConfiguration } from '../models';
 import { BaseGtinReader } from './base-gtin.reader';
-import { Symbologies } from '../config/symbologies';
+import { Symbologies } from '../config';
 
 const REG: RegExp = /^\]I0[0-9]{12,12}$/;
 

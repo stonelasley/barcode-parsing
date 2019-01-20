@@ -1,7 +1,6 @@
 import { BaseReader } from './base.reader';
-import { AimParser } from '../utils/aim-parser';
-import { IReaderConfiguration } from '../models/reader.configuration';
-import { IBarcodeValue, BarcodeValue } from '../models';
+import { AimParser } from '../utils';
+import { IBarcodeValue, BarcodeValue, IReaderConfiguration } from '../models';
 
 export class BaseGtinReader extends BaseReader {
     constructor(

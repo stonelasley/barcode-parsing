@@ -1,13 +1,13 @@
-import { BaseReader } from '../readers/base.reader';
-import { IReaderConfiguration } from '../models/reader.configuration';
-import { IBarcodeValue } from '../models/ibarcode-value';
-import { ApplicationIdentifier } from '../models/application-identifier';
-import { BarcodeValue } from '../models/barcode-value';
-import { APPLICATION_IDENTIFIERS } from '../models/application-identifiers';
-import { CONTROLCHARS } from '../config/control-characters.config';
-import { AIMCODES } from '../config/aim-codes';
-import { AimParser } from '../utils/aim-parser';
-import { Symbologies } from '../config/symbologies';
+import { BaseReader } from './base.reader';
+import {
+    IReaderConfiguration,
+    IBarcodeValue,
+    ApplicationIdentifier,
+    BarcodeValue,
+    APPLICATION_IDENTIFIERS,
+} from '../models';
+import { CONTROLCHARS, AIMCODES, Symbologies } from '../config';
+import { AimParser } from '../utils';
 
 const DELIMITER: string = ' ';
 
