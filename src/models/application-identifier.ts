@@ -19,7 +19,6 @@ export class ApplicationIdentifier {
         return this._code.length + this._length + (this.fractional === true ? 1 : 0);
     }
 
-    private frac = false;
     public get fractional(): boolean {
         return this.frac;
     }
@@ -29,8 +28,6 @@ export class ApplicationIdentifier {
         private _description: string,
         private _length: number,
         private _variableLength: boolean,
-        fractional?: boolean
-    ) {
-        this.frac = fractional || false;
-    }
+        private frac: boolean = false
+    ) {}
 }
