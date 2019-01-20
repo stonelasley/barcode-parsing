@@ -7,7 +7,6 @@ export class BaseGtinReader extends BaseReader {
     constructor(
         symbology: string,
         validationExpression: any,
-        protected _length: number,
         readerConfig?: IReaderConfiguration
     ) {
         super(symbology, validationExpression, readerConfig);
