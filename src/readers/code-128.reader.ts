@@ -6,7 +6,7 @@ import {
     ApplicationIdentifier,
     BarcodeValue,
 } from '../models';
-import { AIMCODES, CONTROLCHARS, Symbologies } from '../config';
+import { AimCodes, CONTROLCHARS, Symbologies } from '../config';
 import { AimParser } from '../utils';
 
 const DELIMITER: string = ' ';
@@ -17,7 +17,7 @@ export class Code128Reader extends BaseReader {
     }
 
     public validate(value: string): boolean {
-        const idPrefix = value.indexOf(AIMCODES.CODE128);
+        const idPrefix = value.indexOf(AimCodes.CODE128);
         const valueLength = AimParser.parseAimCode(this.symbology, value).length;
         return idPrefix === 0 && valueLength > 0;
     }

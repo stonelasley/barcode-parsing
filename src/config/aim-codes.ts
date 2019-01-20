@@ -1,21 +1,7 @@
-export class AIMCODES {
-    public static get GS1(): string {
-        return ']C1';
-    }
-
-    public static get GTIN(): string {
-        return ']E';
-    }
-
-    public static get ITF(): string {
-        return ']I0';
-    }
-
-    public static get CODE39(): string {
-        return ']A0';
-    }
-
-    public static get CODE128(): string {
-        return ']C0';
-    }
+export enum AimCodes {
+    GS1 = ']C1',
+    GTIN = ']E',
+    ITF = ']I0',
+    CODE39 = ']A0',
+    CODE128 = ']C0',
 }

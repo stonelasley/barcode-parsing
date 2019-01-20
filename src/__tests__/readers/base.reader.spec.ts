@@ -21,6 +21,7 @@ class TestReader extends BaseReader {
         return {} as IBarcodeValue;
     }
 }
+
 describe('baseReader', () => {
     const config = {} as IReaderConfiguration;
     let classUnderTest: TestReader;

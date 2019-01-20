@@ -1,3 +1,3 @@
 export * from './aim-codes';
 export * from './symbologies';
-export * from './control-characters.config';
+export * from './control-characters';

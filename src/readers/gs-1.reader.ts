@@ -6,7 +6,7 @@ import {
     BarcodeValue,
     APPLICATION_IDENTIFIERS,
 } from '../models';
-import { CONTROLCHARS, AIMCODES, Symbologies } from '../config';
+import { CONTROLCHARS, AimCodes, Symbologies } from '../config';
 import { AimParser } from '../utils';
 
 const DELIMITER: string = ' ';
@@ -17,7 +17,7 @@ export class GS1Reader extends BaseReader {
     }
 
     public validate(value: string): boolean {
-        const idPrefix = value.indexOf(AIMCODES.GS1);
+        const idPrefix = value.indexOf(AimCodes.GS1);
         const valueLength = AimParser.parseAimCode(this.symbology, value).length;
         return idPrefix === 0 && valueLength > 0;
     }
