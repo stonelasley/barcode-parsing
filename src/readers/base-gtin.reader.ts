@@ -6,7 +6,7 @@ import { IBarcodeValue, BarcodeValue } from '../models';
 export class BaseGtinReader extends BaseReader {
     constructor(
         symbology: string,
-        validationExpression: any,
+        validationExpression: RegExp,
         readerConfig?: IReaderConfiguration
     ) {
         super(symbology, validationExpression, readerConfig);

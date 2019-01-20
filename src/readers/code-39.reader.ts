@@ -5,7 +5,7 @@ import { AIMCODES } from '../config/aim-codes';
 import { AimParser } from '../utils/aim-parser';
 import { Symbologies } from '../config/symbologies';
 
-const REG: any = /^[A-Z0-9* \-$%.+\/]{1,43}$/;
+const REG: RegExp = /^[A-Z0-9* \-$%.+\/]{1,43}$/;
 
 // todo this should probably eventually move into host app
 const defaultConfig = {
@@ -48,7 +48,6 @@ export class Code39Reader extends BaseReader {
         const result = new BarcodeValue(this.symbology, value);
         try {
             this.tryValidate(value);
-            // result.values = this.parseValues(value);
             result.values = AimParser.parseAimCode(this.symbology, value);
         } catch (ex) {
             result.success = false;

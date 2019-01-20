@@ -4,7 +4,7 @@ import { IBarcodeValue } from '../models';
 export abstract class BaseReader {
     constructor(
         protected _symbology: string,
-        protected _validationExpression: any,
+        protected _validationExpression: RegExp,
         protected _readerConfig: IReaderConfiguration
     ) {}
 
@@ -16,7 +16,7 @@ export abstract class BaseReader {
         return this._symbology;
     }
 
-    public get validationExpression(): any {
+    public get validationExpression(): RegExp {
         return this._validationExpression;
     }
 
