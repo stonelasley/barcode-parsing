@@ -7,13 +7,13 @@ import { APPLICATION_IDENTIFIERS } from '../models/application-identifiers';
 import { CONTROLCHARS } from '../config/control-characters.config';
 import { AIMCODES } from '../config/aim-codes';
 import { AimParser } from '../utils/aim-parser';
+import { Symbologies } from '../config/symbologies';
 
-const SYMBOLOGY: string = 'gs1_128';
 const DELIMITER: string = ' ';
 
 export class GS1Reader extends BaseReader {
     constructor(readerConfig?: IReaderConfiguration) {
-        super(SYMBOLOGY, null, readerConfig);
+        super(Symbologies.GS1128, null, readerConfig);
     }
 
     public validate(value: string): boolean {

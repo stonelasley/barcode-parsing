@@ -3,9 +3,9 @@ import { IReaderConfiguration } from '../models/reader.configuration';
 import { IBarcodeValue, BarcodeValue } from '../models';
 import { AIMCODES } from '../config/aim-codes';
 import { AimParser } from '../utils/aim-parser';
+import { Symbologies } from '../config/symbologies';
 
 const REG: any = /^[A-Z0-9* \-$%.+\/]{1,43}$/;
-const SYMBOLOGY: string = 'code_39';
 
 // todo this should probably eventually move into host app
 const defaultConfig = {
@@ -36,7 +36,7 @@ const defaultConfig = {
 export class Code39Reader extends BaseReader {
     constructor(readerConfig?: IReaderConfiguration) {
         const config = readerConfig || defaultConfig;
-        super(SYMBOLOGY, REG, config);
+        super(Symbologies.Code39, REG, config);
     }
 
     public validate(value: string): boolean {
