@@ -1,6 +1,6 @@
 import { IReaderConfiguration } from '../../models/reader.configuration';
 import { Code39Reader } from '../../readers/code-39.reader';
-import { AimCodes } from '../../config/aim-codes';
+import { AimCodes } from '../../config/aim-codes';
 
 export class TestClass extends Code39Reader {
     public decode(val: any): any {
@@ -16,11 +16,15 @@ describe('code39Reader', () => {
     let classUnderTest: TestClass;
 
     const decodeValues: string[] = [
-        AimCodes.CODE39 + 'P0010065330101',
-        AimCodes.CODE39 + 'I0010065330101',
-        AimCodes.CODE39 + 'M0010065330101',
-        AimCodes.CODE39 + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-$%.+/',
-        AimCodes.CODE39 + 'A',
+        AimCodes.CODE39 + 'P0010065330101',
+
+        AimCodes.CODE39 + 'I0010065330101',
+
+        AimCodes.CODE39 + 'M0010065330101',
+
+        AimCodes.CODE39 + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-$%.+/',
+
+        AimCodes.CODE39 + 'A',
     ];
 
     const invalidValues: string[] = [

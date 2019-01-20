@@ -17,7 +17,8 @@ export class Code128Reader extends BaseReader {
     }
 
     public validate(value: string): boolean {
-        const idPrefix = value.indexOf(AimCodes.CODE128);
+        const idPrefix = value.indexOf(AimCodes.CODE128);
+
         const valueLength = AimParser.parseAimCode(this.symbology, value).length;
         return idPrefix === 0 && valueLength > 0;
     }
