@@ -16,7 +16,11 @@ export class ApplicationIdentifier {
     }
 
     public get totalLength(): number {
-        return this._code.length + this._length + (this.fractional === true ? 1 : 0);
+        return (
+            this._code.length +
+            this._length +
+            (this.fractional === true ? 1 : 0)
+        );
     }
 
     public get fractional(): boolean {

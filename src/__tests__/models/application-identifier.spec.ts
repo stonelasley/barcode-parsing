@@ -51,7 +51,13 @@ describe('ApplicationIdentifier', () => {
         });
 
         test('should return code length + length + 1 for fractional', () => {
-            classUnderTest = new ApplicationIdentifier('a', 'b', 10, true, true);
+            classUnderTest = new ApplicationIdentifier(
+                'a',
+                'b',
+                10,
+                true,
+                true
+            );
 
             expect(classUnderTest.totalLength).toEqual(12);
         });

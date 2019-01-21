@@ -1,6 +1,12 @@
 export class Symbologies {
     public static get All(): string[] {
-        return [this.Code39, this.Code128, this.GS1128, ...this.GTINX, ...this.ITFX];
+        return [
+            this.Code39,
+            this.Code128,
+            this.GS1128,
+            ...this.GTINX,
+            ...this.ITFX,
+        ];
     }
 
     public static get GTINX(): string[] {

@@ -1,7 +1,10 @@
 import { READER_TYPES } from './readers';
-import { IBarcodeValue, BarcodeValue } from './models';
-import { IParserConfiguration } from './models/parser.configuration';
-import { IReaderConfiguration } from './models/reader.configuration';
+import {
+    IBarcodeValue,
+    BarcodeValue,
+    IParserConfiguration,
+    IReaderConfiguration,
+} from './models';
 
 export class BarcodeParser {
     private _readers: any;
@@ -34,11 +37,16 @@ export class BarcodeParser {
         return result;
     }
 
-    protected initReaders(readerTypes: string[], configurations: IReaderConfiguration[]) {
+    protected initReaders(
+        readerTypes: string[],
+        configurations: IReaderConfiguration[]
+    ) {
         this.readers = readerTypes.map(r => {
             let readerConfig: IReaderConfiguration;
             if (configurations.length > 0) {
-                const configs = configurations.filter(c => c !== undefined && r === c.symbology);
+                const configs = configurations.filter(
+                    c => c !== undefined && r === c.symbology
+                );
                 readerConfig = configs.pop();
             }
             if (READER_TYPES[r]) {
@@ -47,7 +55,9 @@ export class BarcodeParser {
         });
 
         /* tslint:disable */
-        this._readers.forEach(reader => console.log('Reader Initialized: ', reader));
+        this._readers.forEach(reader =>
+            console.log('Reader Initialized: ', reader)
+        );
         /* tslint:enable */
     }
 }

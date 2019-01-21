@@ -13,7 +13,9 @@ describe('Itf12Reader', () => {
         test('should validate value length', () => {
             /* tslint:disable */
             expect(classUnderTest['validate'](']I0111111111111')).toBe(true);
-            expect(classUnderTest['validate'](']I0111111111111111')).toBe(false);
+            expect(classUnderTest['validate'](']I0111111111111111')).toBe(
+                false
+            );
             expect(classUnderTest['validate'](']I01111111')).toBe(false);
             /* tslint:enable*/
         });

@@ -39,7 +39,10 @@ export class Code39Reader extends BaseReader {
 
     public validate(value: string): boolean {
         const aimPrefix = value.indexOf(AimCodes.CODE39);
-        return aimPrefix === 0 && super.validate(AimParser.parseAimCode(this.symbology, value));
+        return (
+            aimPrefix === 0 &&
+            super.validate(AimParser.parseAimCode(this.symbology, value))
+        );
     }
 
     public decode(value: string): IBarcodeValue {

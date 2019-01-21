@@ -19,7 +19,8 @@ export class Code128Reader extends BaseReader {
     public validate(value: string): boolean {
         const idPrefix = value.indexOf(AimCodes.CODE128);
 
-        const valueLength = AimParser.parseAimCode(this.symbology, value).length;
+        const valueLength = AimParser.parseAimCode(this.symbology, value)
+            .length;
         return idPrefix === 0 && valueLength > 0;
     }
 
@@ -28,7 +29,10 @@ export class Code128Reader extends BaseReader {
         const result = new BarcodeValue(this.symbology, value);
         try {
             this.tryValidate(value);
-            const valWithoutId = AimParser.parseAimCode(this.symbology, sterilizedValue);
+            const valWithoutId = AimParser.parseAimCode(
+                this.symbology,
+                sterilizedValue
+            );
             result.values = [].concat.apply(
                 [],
                 valWithoutId.split(DELIMITER).map(val => this.parseValues(val))
