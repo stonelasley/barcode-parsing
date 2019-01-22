@@ -1,7 +1,5 @@
 import { READER_TYPES } from './readers';
-import { IBarcodeValue, BarcodeValue } from './models';
-import { IParserConfiguration } from './models/parser.configuration';
-import { IReaderConfiguration } from './models/reader.configuration';
+import { IBarcodeValue, BarcodeValue, IParserConfiguration, IReaderConfiguration } from './models';
 
 export class BarcodeParser {
     private _readers: any;
