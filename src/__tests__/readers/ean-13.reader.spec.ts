@@ -12,16 +12,16 @@ describe('Ean13Reader', () => {
     describe('validate', () => {
         test('should validate value length', () => {
             /* tslint:disable */
-            expect(classUnderTest['validate'](']E41111111111111')).toBe(true);
-            expect(classUnderTest['validate'](']E411111111111111')).toBe(false);
-            expect(classUnderTest['validate'](']E411111')).toBe(false);
+            expect(classUnderTest['validate'](']E01111111111111')).toBe(true);
+            expect(classUnderTest['validate'](']E011111111111111')).toBe(false);
+            expect(classUnderTest['validate'](']E011111')).toBe(false);
             /* tslint:enable */
         });
 
         test('should validate character type', () => {
             /* tslint:disable */
-            expect(classUnderTest['validate'](']E41111111111111')).toBe(true);
-            expect(classUnderTest['validate'](']E4aaaaaaaaaaaaa')).toBe(false);
+            expect(classUnderTest['validate'](']E01111111111111')).toBe(true);
+            expect(classUnderTest['validate'](']E0aaaaaaaaaaaaa')).toBe(false);
             /* tslint:enable */
         });
     });
