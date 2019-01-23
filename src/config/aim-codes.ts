@@ -4,4 +4,6 @@ export enum AimCodes {
     ITF = ']I0',
     CODE39 = ']A0',
     CODE128 = ']C0',
+    EAN13 = ']E4',
+    EAN8 = ']E0',
 }
