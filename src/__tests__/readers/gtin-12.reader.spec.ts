@@ -12,16 +12,16 @@ describe('Gtin12Reader', () => {
     describe('validate', () => {
         test('should validate by length', () => {
             /* tslint:disable */
-            expect(classUnderTest['validate'](']E111111111111')).toBe(true);
-            expect(classUnderTest['validate'](']E111111111111111')).toBe(false);
-            expect(classUnderTest['validate']('E[1111111')).toBe(false);
+            expect(classUnderTest['validate'](']E0111111111111')).toBe(true);
+            expect(classUnderTest['validate'](']E0111111111111111')).toBe(false);
+            expect(classUnderTest['validate']('E[01111111')).toBe(false);
             /* tslint:enable */
         });
 
         test('should validate character type', () => {
             /* tslint:disable */
-            expect(classUnderTest['validate'](']E111111111111')).toBe(true);
-            expect(classUnderTest['validate'](']Eaaaaaaaaaaaa')).toBe(false);
+            expect(classUnderTest['validate'](']E0111111111111')).toBe(true);
+            expect(classUnderTest['validate'](']E0aaaaaaaaaaaa')).toBe(false);
             /* tslint:enable */
         });
     });
