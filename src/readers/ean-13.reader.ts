@@ -2,10 +2,10 @@ import { IReaderConfiguration } from '../models';
 import { BaseGtinReader } from './base-gtin.reader';
 import { Symbologies } from '../config';
 
-const REG: RegExp = /^\]E4[0-9]{8,8}$/;
+const REG: RegExp = /^\]E0[0-9]{13,13}$/;
 
-export class Gtin8Reader extends BaseGtinReader {
+export class Ean13Reader extends BaseGtinReader {
     constructor(readerConfig?: IReaderConfiguration) {
-        super(Symbologies.GTIN8, REG, readerConfig);
+        super(Symbologies.GTIN13, REG, readerConfig);
     }
 }

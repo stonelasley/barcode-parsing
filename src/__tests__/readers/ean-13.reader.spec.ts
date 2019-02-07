@@ -1,12 +1,12 @@
 import { IReaderConfiguration } from '../../models';
-import { Gtin13Reader } from '../../readers';
+import { Ean13Reader } from '../../readers';
 
-describe('Gtin13Reader', () => {
+describe('Ean13Reader', () => {
     const config = {} as IReaderConfiguration;
-    let classUnderTest: Gtin13Reader;
+    let classUnderTest: Ean13Reader;
 
     beforeEach(() => {
-        classUnderTest = new Gtin13Reader(config);
+        classUnderTest = new Ean13Reader(config);
     });
 
     describe('validate', () => {
@@ -14,7 +14,7 @@ describe('Gtin13Reader', () => {
             /* tslint:disable */
             expect(classUnderTest['validate'](']E01111111111111')).toBe(true);
             expect(classUnderTest['validate'](']E011111111111111')).toBe(false);
-            expect(classUnderTest['validate'](']E0111111')).toBe(false);
+            expect(classUnderTest['validate'](']E011111')).toBe(false);
             /* tslint:enable */
         });
 

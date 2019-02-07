@@ -9,7 +9,7 @@ describe('AimCodes', () => {
 
     describe('GTIN', () => {
         it('should return GTIN code', () => {
-            expect(AimCodes.GTIN).toBe(']E');
+            expect(AimCodes.GTIN).toBe(']E0');
         });
     });
 
@@ -28,6 +28,12 @@ describe('AimCodes', () => {
     describe('CODE128', () => {
         it('should return CODE128 code', () => {
             expect(AimCodes.CODE128).toBe(']C0');
+        });
+    });
+
+    describe('EAN13', () => {
+        it('should return EAN code', () => {
+            expect(AimCodes.EAN13).toBe(']E3');
         });
     });
 });

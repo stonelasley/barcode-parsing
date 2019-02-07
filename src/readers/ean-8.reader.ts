@@ -4,7 +4,7 @@ import { Symbologies } from '../config';
 
 const REG: RegExp = /^\]E4[0-9]{8,8}$/;
 
-export class Gtin8Reader extends BaseGtinReader {
+export class Ean8Reader extends BaseGtinReader {
     constructor(readerConfig?: IReaderConfiguration) {
         super(Symbologies.GTIN8, REG, readerConfig);
     }
