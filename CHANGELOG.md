@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/stonelasley/barcode-parsing/compare/v1.1.1...v1.2.0) (2019-02-07)
+
+
+### Features
+
+* **ean:** switch gtin to ean aim codes ([a09d303](https://github.com/stonelasley/barcode-parsing/commit/a09d303))
+* **EAN:** Add EAN8 - EAN13 support ([a7a2231](https://github.com/stonelasley/barcode-parsing/commit/a7a2231))
+* **EAN:** EAN 8/13 support ([73adacc](https://github.com/stonelasley/barcode-parsing/commit/73adacc))
+
 # [1.1.0](https://github.com/stonelasley/barcode-parsing/compare/v1.0.0...v1.1.0) (2019-01-19)
 
 
