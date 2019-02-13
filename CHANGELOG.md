@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/stonelasley/barcode-parsing/compare/v1.2.2...v1.2.3) (2019-02-13)
+
+
+### Bug Fixes
+
+* **package.json:** include lib ([6aac3f6](https://github.com/stonelasley/barcode-parsing/commit/6aac3f6))
+
 ## [1.2.2](https://github.com/stonelasley/barcode-parsing/compare/v1.2.1...v1.2.2) (2019-02-13)
 
 
