@@ -5,7 +5,7 @@
   "repository": "git@github.com:stonelasley/barcode-parsing.git",
   "typings": "lib/index.d.ts",
   "main": "./lib/index.js",
-  "files": "lib",
+  "files": "[lib]",
   "scripts": {
     "build": "tsc -d",
     "prepublish": "npm run build",
