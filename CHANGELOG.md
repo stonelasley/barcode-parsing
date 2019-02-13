@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/stonelasley/barcode-parsing/compare/v1.2.1...v1.2.2) (2019-02-13)
+
+
+### Bug Fixes
+
+* **package.json:** files should be array ([67c2e7f](https://github.com/stonelasley/barcode-parsing/commit/67c2e7f))
+
 ## [1.2.1](https://github.com/stonelasley/barcode-parsing/compare/v1.2.0...v1.2.1) (2019-02-13)
 
 
