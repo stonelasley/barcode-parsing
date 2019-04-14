@@ -1,5 +1,5 @@
 import { IReaderConfiguration } from '../../models';
-import { Gtin8Reader } from '../../readers';
+import { Gtin8Reader } from '../../readers/gtin-8.reader';
 
 describe('Gtin8Reader', () => {
     const config = {} as IReaderConfiguration;

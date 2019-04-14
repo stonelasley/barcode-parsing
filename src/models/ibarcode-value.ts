@@ -5,5 +5,8 @@ export interface IBarcodeValue {
     errorMessage: string;
     success: boolean;
     checkDigit: number;
+    isWeightBased: boolean;
+    systemId: string;
+    systemMeasure: number;
     pluck(valueKey: string): any;
 }

@@ -1,4 +1,5 @@
 import { IBarcodeValue, BarcodeValue } from '../../models';
+import { Symbologies } from '../../config/symbologies';
 
 describe('BarcodeValue', () => {
     let classUnderTest: IBarcodeValue;
@@ -17,6 +18,29 @@ describe('BarcodeValue', () => {
         expect(classUnderTest.rawValue).toBe(rawVal);
     });
 
+    test('isWeightBased should be true for GTIN13', () => {
+        classUnderTest = new BarcodeValue(Symbologies.GTIN13, '');
+        classUnderTest.values = '2843970021365';
+        expect(classUnderTest.isWeightBased).toBeTruthy();
+    });
+
+    test('isWeightBased should be false for other Systems', () => {
+        classUnderTest = new BarcodeValue(Symbologies.GTIN13, '');
+        classUnderTest.values = '3843970021365';
+        expect(classUnderTest.isWeightBased).toBeFalsy();
+    });
+
+    test('systemId should return first half value', () => {
+        classUnderTest = new BarcodeValue(Symbologies.GTIN13, '');
+        classUnderTest.values = '2843970021365';
+        expect(classUnderTest.systemId).toEqual('84397');
+    });
+
+    test('systemValue should return second half value', () => {
+        classUnderTest = new BarcodeValue(Symbologies.GTIN13, '');
+        classUnderTest.values = '2843970021365';
+        expect(classUnderTest.systemMeasure).toEqual(21.36);
+    });
     describe('pluck', () => {
         test('return values of existing keys', () => {
             classUnderTest.values = [

@@ -1,10 +1,10 @@
-import { BaseGtinReader } from '../../readers/base-gtin.reader';
 import { IReaderConfiguration } from '../../models';
+import { BaseGtinReader } from '../../readers/base-gtin.reader';
 
 const REG: RegExp = /[0-9]/;
 const SYMBOLOGY: string = 'MYSYMBOLOGY';
 
-class TestReader extends BaseGtinReader {
+export class TestReader extends BaseGtinReader {
     constructor(readerConfig?: IReaderConfiguration) {
         super(SYMBOLOGY, REG, readerConfig);
     }
