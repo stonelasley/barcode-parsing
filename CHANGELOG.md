@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/stonelasley/barcode-parsing/compare/v1.2.3...v1.3.0) (2019-04-14)
+
+
+### Features
+
+* **BarcodeValue:** UPC-A weights ([2423524](https://github.com/stonelasley/barcode-parsing/commit/2423524))
+
 ## [1.2.3](https://github.com/stonelasley/barcode-parsing/compare/v1.2.2...v1.2.3) (2019-02-13)
 
 
