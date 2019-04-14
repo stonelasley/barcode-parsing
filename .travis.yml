@@ -11,9 +11,9 @@ cache:
 matrix:
   fast_finish: true
 install:
-  - yarn install
+  - npm install
 script:
-  - yarn test 
+  - npm test 
 after_success:
-  - yarn coverage 
-  - yarn release
+  - npm run coverage 
+  - npm run release
