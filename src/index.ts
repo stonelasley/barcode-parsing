@@ -1,5 +1,5 @@
 import { BarcodeParser } from './barcode-parser';
 import { IBarcodeValue, IParserConfiguration } from './models/';
-import { Symbologies } from './config/symbologies';
+import { AICode, Symbologies } from './enums';
 
-export { BarcodeParser, IBarcodeValue, IParserConfiguration, Symbologies };
+export { AICode, BarcodeParser, IBarcodeValue, IParserConfiguration, Symbologies };

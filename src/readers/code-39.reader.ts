@@ -5,36 +5,9 @@ import { AimParser } from '../utils';
 
 const REG: RegExp = /^[A-Z0-9* \-$%.+\/]{1,43}$/;
 
-// todo this should probably eventually move into host app
-const defaultConfig = {
-    values: [
-        {
-            length: 1,
-            start: 0,
-            valueType: 'documentType',
-        },
-        {
-            length: 2,
-            start: -4,
-            valueType: 'companyId',
-        },
-        {
-            length: 2,
-            start: -2,
-            valueType: 'locationId',
-        },
-        {
-            length: 9,
-            start: 1,
-            valueType: 'documentId',
-        },
-    ],
-} as IReaderConfiguration;
-
 export class Code39Reader extends BaseReader {
     constructor(readerConfig?: IReaderConfiguration) {
-        const config = readerConfig || defaultConfig;
-        super(Symbologies.Code39, REG, config);
+        super(Symbologies.Code39, REG, readerConfig);
     }
 
     public validate(value: string): boolean {
@@ -49,7 +22,15 @@ export class Code39Reader extends BaseReader {
         const result = new BarcodeValue(this.symbology, value);
         try {
             this.tryValidate(value);
-            result.values = AimParser.parseAimCode(this.symbology, value);
+            const parsedVal = AimParser.parseAimCode(this.symbology, value);
+            if (!this.configuration?.values?.length) {
+                result.values = parsedVal;
+            } else {
+                result.values = this.configuration.values.map(ed => ({
+                        code: ed.valueType,
+                        value: parsedVal.substr(ed.start, ed.length),
+            }));
+            }
         } catch (ex) {
             result.success = false;
             result.errorMessage = ex;
