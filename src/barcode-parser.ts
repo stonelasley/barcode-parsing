@@ -1,5 +1,10 @@
 import { READER_TYPES } from './readers';
-import { IBarcodeValue, BarcodeValue, IParserConfiguration, IReaderConfiguration } from './models';
+import {
+    IBarcodeValue,
+    BarcodeValue,
+    IParserConfiguration,
+    IReaderConfiguration,
+} from './models';
 
 export class BarcodeParser {
     private _readers: any;
@@ -12,7 +17,11 @@ export class BarcodeParser {
     }
 
     constructor(config: IParserConfiguration) {
-        this.initReaders(config.readers, config.readerConfigurations);
+        this.initReaders(
+            config.readers,
+            config.readerConfigurations,
+            config.verbose
+        );
     }
 
     public parse(barcodeVal: any): IBarcodeValue {
@@ -35,12 +44,13 @@ export class BarcodeParser {
     protected initReaders(
         readerTypes: string[],
         configurations: IReaderConfiguration[],
+        verbose: boolean = false
     ) {
         this.readers = readerTypes.map(r => {
             let readerConfig: IReaderConfiguration;
             if (configurations.length > 0) {
                 const configs = configurations.filter(
-                    c => c !== undefined && r === c.symbology,
+                    c => c !== undefined && r === c.symbology
                 );
                 readerConfig = configs.pop();
             }
@@ -49,10 +59,10 @@ export class BarcodeParser {
             }
         });
 
-        /* tslint:disable */
-        this._readers.forEach(reader =>
-            console.log('Reader Initialized: ', reader)
-        );
-        /* tslint:enable */
+        if (verbose) {
+            this._readers.forEach(reader =>
+                console.log('Reader Initialized: ', reader)
+            );
+        }
     }
 }
