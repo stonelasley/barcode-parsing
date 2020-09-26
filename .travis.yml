@@ -1,5 +1,5 @@
 sudo: required
-dist: trusty
+dist: focal
 git:
   depth: 1
 language: node_js
