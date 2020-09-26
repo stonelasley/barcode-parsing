@@ -1,4 +1,4 @@
-import { AimCodes } from '../../config';
+import { AimCodes } from '../../enums';
 
 describe('AimCodes', () => {
     describe('GS1', () => {

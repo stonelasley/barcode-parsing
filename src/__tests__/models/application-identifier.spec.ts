@@ -56,7 +56,7 @@ describe('ApplicationIdentifier', () => {
                 'b',
                 10,
                 true,
-                true
+                true,
             );
 
             expect(classUnderTest.totalLength).toEqual(12);

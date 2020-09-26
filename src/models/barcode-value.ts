@@ -1,6 +1,5 @@
 import { IBarcodeValue } from './ibarcode-value';
-import { Symbologies } from '../config/symbologies';
-import { stringify } from 'querystring';
+import { Symbologies } from '../enums';
 
 export class BarcodeValue implements IBarcodeValue {
     private _values: any;

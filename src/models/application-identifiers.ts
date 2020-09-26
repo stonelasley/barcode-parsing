@@ -1,545 +1,813 @@
 import { ApplicationIdentifier } from './application-identifier';
+import { AICode } from '../enums';
 
-export const APPLICATION_IDENTIFIERS: ApplicationIdentifier[] = [
-    new ApplicationIdentifier(
-        '00',
-        'Serial Shipping Container Code',
-        18,
-        false
-    ),
-    new ApplicationIdentifier('01', 'Global Trade Item Number', 14, false),
-    new ApplicationIdentifier('02', 'GTIN of Contained Trade Items', 14, false),
-    new ApplicationIdentifier('10', 'Batch/Lot Number', 20, true),
-    new ApplicationIdentifier('11', 'Production Date', 6, false),
-    new ApplicationIdentifier('12', 'DueDate', 6, false),
-    new ApplicationIdentifier('13', 'Packaging Date', 6, false),
-    new ApplicationIdentifier('15', 'Best Befor eDate YYMMDD', 6, false),
-    new ApplicationIdentifier('17', 'Expiration Date', 6, false),
-    new ApplicationIdentifier('20', 'Product Variant', 2, false),
-    new ApplicationIdentifier('21', 'Serial Number', 20, true),
-    new ApplicationIdentifier('22', 'Secondary Data Fields', 29, true),
-    new ApplicationIdentifier('23n', 'Lot number[n]', 19, true),
-    new ApplicationIdentifier(
-        '240',
-        'Additional Product Identification',
-        30,
-        true
-    ),
-    new ApplicationIdentifier('241', 'Customer Part Number', 30, true),
-    new ApplicationIdentifier('242', 'Made-to-Order Variation Number', 6, true),
-    new ApplicationIdentifier('250', 'Secondary Serial Number', 30, true),
-    new ApplicationIdentifier('251', 'Reference to SourceEntity', 30, true),
-    new ApplicationIdentifier(
-        '253',
-        'Global Document Type Identifier',
-        17,
-        true
-    ),
-    new ApplicationIdentifier('254', 'GLN Extension Component', 20, true),
-    new ApplicationIdentifier('255', 'Global Coupon Number GCN', 25, true),
-    new ApplicationIdentifier('30', 'Count of items', 8, true),
-    new ApplicationIdentifier(
-        '310',
-        'Product Net Weight in kg',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '311',
-        'Product Length/1st Dimension,in meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '312',
-        'Product Width/Diameter/2nd Dimension,in meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '313',
-        'Product Depth/Thickness/Height/3rd Dimension,in meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '314',
-        'Product Area,in square meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '315',
-        'Product Net Volume,in liters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '316',
-        'Product Net Volume,in cubic meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '320',
-        'Product Net Weight,in pounds',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '321',
-        'Product Length/1st Dimension,in inches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '322',
-        'Product Length/1st Dimension,in feet',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '323',
-        'Product Length/1st Dimension,in yards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '324',
-        'Product Width/Diameter/2nd Dimension,in inches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '325',
-        'Product Width/Diameter/2nd Dimension,in feet',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '326',
-        'Product Width/Diameter/2nd Dimension,in yards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '327',
-        'Product Depth/Thickness/Height/3rd Dimension,in inches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '328',
-        'Product Depth/Thickness/Height/3rd Dimension,in feet',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '329',
-        'Product Depth/Thickness/3rd Dimension,in yards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '330',
-        'Container Gross Weight kg',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '331',
-        'Container Length/1st Dimension Meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '332',
-        'Container Width/Diameter/2nd Dimension Meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '333',
-        'Container Depth/Thickness/3rdDimension Meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '334',
-        'Container Area Square Meters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '335',
-        'Container Gross Volume Liters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '336',
-        'Container Gross Volume(CubicMeters',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '340',
-        'Container Gross Weight(Pounds',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '341',
-        'Container Length/1stDimension,ininches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '342',
-        'Container Length/1stDimension,infeet',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '343',
-        'Container Length/1stDimensionin,inyards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '344',
-        'Container Width/Diameter/2nd Dimension,in inches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '345',
-        'Container Width/Diameter/2nd Dimension,in feet',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '346',
-        'Container Width/Diameter/2nd Dimension,in yards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '347',
-        'Container Depth/Thickness/Height/3rd Dimension,in inches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '348',
-        'Container Depth/Thickness/Height/3rd Dimension,in feet',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '349',
-        'Container Depth/Thickness/Height/3rd Dimension,in yards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '350',
-        'Product Area(SquareInches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier('351', 'Product Area(SquareFeet', 6, false, true),
-    new ApplicationIdentifier(
-        '352',
-        'Product Area(SquareYards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '353',
-        'Container Area(SquareInches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '354',
-        'Container Area(SquareFeet',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '355',
-        'Container Area(SquareYards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier('356', 'Net Weight(TroyOunces', 6, false, true),
-    new ApplicationIdentifier(
-        '357',
-        'Net Weight/Volume(Ounces',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier('360', 'Product Volume(Quarts', 6, false, true),
-    new ApplicationIdentifier('361', 'Product Volume(Gallons', 6, false, true),
-    new ApplicationIdentifier(
-        '362',
-        'Container Gross Volume(Quarts',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '363',
-        'ContainerGrossVolume(U.S.Gallons',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '364',
-        'ProductVolume(CubicInches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier('365', 'ProductVolume(CubicFeet', 6, false, true),
-    new ApplicationIdentifier(
-        '366',
-        'ProductVolume(CubicYards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '367',
-        'ContainerGrossVolume(CubicInches',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '368',
-        'ContainerGrossVolume(CubicFeet',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier(
-        '369',
-        'ContainerGrossVolume(CubicYards',
-        6,
-        false,
-        true
-    ),
-    new ApplicationIdentifier('37', 'NumberofUnitsContained', 8, true),
-    new ApplicationIdentifier(
-        '390',
-        'Amount payable local currency)',
-        15,
-        true,
-        true
-    ),
-    new ApplicationIdentifier(
-        '391',
-        'Amount payable with ISO currency code',
-        18,
-        true,
-        true
-    ),
-    new ApplicationIdentifier(
-        '392',
-        'Amount payable per single item local currency',
-        15,
-        true,
-        true
-    ),
-    new ApplicationIdentifier(
-        '393',
-        'Amount payable persingle itemx with ISO currency code',
-        18,
-        true,
-        true
-    ),
-    new ApplicationIdentifier(
-        '400',
-        'Customer Purchase Order Number',
-        30,
-        true
-    ),
-    new ApplicationIdentifier('401', 'Consignment Number', 30, true),
-    new ApplicationIdentifier('402', 'BillofLadingnumber', 17, false),
-    new ApplicationIdentifier('403', 'Routing code', 30, true),
-    new ApplicationIdentifier(
-        '410',
-        'ShipTo/DeliverToLocationCode(GlobalLocationNumber',
-        13,
-        false
-    ),
-    new ApplicationIdentifier(
-        '411',
-        'BillTo/InvoiceLocationCode(GlobalLocationNumber',
-        13,
-        false
-    ),
-    new ApplicationIdentifier(
-        '412',
-        'PurchaseFromLocationCode(GlobalLocationNumber',
-        13,
-        false
-    ),
-    new ApplicationIdentifier(
-        '413',
-        'Shipfor,Deliver for,or Forward to Location Code',
-        13,
-        false
-    ),
-    new ApplicationIdentifier(
-        '414',
-        'Identification of a physical location',
-        13,
-        false
-    ),
-    new ApplicationIdentifier('420', 'ShipTo/DeliverToPostalCode', 20, true),
-    new ApplicationIdentifier('421', 'ShipTo/DeliverToPostalCode', 15, true),
-    new ApplicationIdentifier('422', 'Country of Origin', 3, false),
-    new ApplicationIdentifier(
-        '423',
-        'Country or countries of initial processing',
-        15,
-        true
-    ),
-    new ApplicationIdentifier('424', 'Country of processing', 3, false),
-    new ApplicationIdentifier('425', 'Country of disassembly', 3, false),
-    new ApplicationIdentifier('426', 'Country of full process chain', 3, false),
-    new ApplicationIdentifier('7001', 'NATO Stock Number NSN', 13, false),
-    new ApplicationIdentifier(
-        '7002',
-        'UN/ECE Meat Carcasses and cuts classification',
-        30,
-        true
-    ),
-    new ApplicationIdentifier('7003', 'expiration date and time', 10, false),
-    new ApplicationIdentifier('7004', 'Active Potency', 4, true),
-    new ApplicationIdentifier('703n', 'Processor approval', 30, true),
-    new ApplicationIdentifier(
-        '8001',
-        'Roll Products: Width/Length/CoreDiameter/Direction/Splices',
-        14,
-        false
-    ),
-    new ApplicationIdentifier('8002', 'Mobile phone identifier', 20, true),
-    new ApplicationIdentifier(
-        '8003',
-        'Global ReturnableAssetIdentifier',
-        30,
-        true
-    ),
-    new ApplicationIdentifier(
-        '8004',
-        'Global IndividualAssetIdentifier',
-        30,
-        true
-    ),
-    new ApplicationIdentifier('8005', 'Price perUnitofMeasure', 6, false),
-    new ApplicationIdentifier(
-        '8006',
-        'identification of the components of an item',
-        18,
-        false
-    ),
-    new ApplicationIdentifier(
-        '8007',
-        'International Bank Account Number',
-        30,
-        true
-    ),
-    new ApplicationIdentifier('8008', 'Date/time of production', 12, true),
-    new ApplicationIdentifier(
-        '8018',
-        'Global ServiceRelationshipNumber',
-        18,
-        false
-    ),
-    new ApplicationIdentifier(
-        '8020',
-        'Payment slip preference number',
-        25,
-        true
-    ),
-    new ApplicationIdentifier(
-        '8100',
-        'CouponExtendedCode: Number System and Offer',
-        6,
-        false
-    ),
-    new ApplicationIdentifier(
-        '8101',
-        'CouponExtendedCode: Number System,Offer,End of Offer',
-        10,
-        false
-    ),
-    new ApplicationIdentifier(
-        '8102',
-        'CouponExtendedCode: Number System preceded by 0',
-        2,
-        false
-    ),
-    new ApplicationIdentifier('8110', 'CouponcodeID(NorthAmerica', 30, true),
-    new ApplicationIdentifier('8200', 'Extended Packaging URL', 70, true),
-    new ApplicationIdentifier(
-        '90',
-        'Mutually Agreed Between Trading Partners',
-        30,
-        true
-    ),
-    new ApplicationIdentifier('91', 'Internal Company Codes', 30, true),
-    new ApplicationIdentifier('92', 'Internal Company Codes', 30, true),
-    new ApplicationIdentifier('93', 'Internal Company Codes', 30, true),
-    new ApplicationIdentifier('94', 'Internal Company Codes', 30, true),
-    new ApplicationIdentifier('95', 'Internal Company Codes', 30, true),
-    new ApplicationIdentifier('96', 'Internal Company Codes', 30, true),
-    new ApplicationIdentifier('97', 'Internal Company Codes', 30, true),
-    new ApplicationIdentifier('98', 'Internal Company Codes', 30, true),
-    new ApplicationIdentifier('99', 'Internal Company Codes', 30, true),
+const data = [
+  {
+    code: AICode.SerialShippingContainerCode,
+    description: 'Serial Shipping Container Code',
+    length: 18,
+    variableLength: false,
+  },
+  {
+    code: AICode.GTIN,
+    description: 'Global Trade Item Number',
+    length: 14,
+    variableLength: false,
+  },
+  {
+    code: AICode.GTINContainer,
+    description: 'GTIN of Contained Trade Items',
+    length: 14,
+    variableLength: false,
+  },
+  {
+    code: AICode.BatchLot,
+    description: 'Batch/Lot Number',
+    length: 20,
+    variableLength: true,
+  },
+  {
+    code: AICode.ProductionDate,
+    description: 'Production Date',
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.DueDate,
+    description: 'DueDate',
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.PackagingDate,
+    description: 'Packaging Date',
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.BestBeforeDate,
+    description: 'Best Before Date YYMMDD',
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ExpirationDate,
+    description: 'Expiration Date',
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductVariant,
+    description: 'Product Variant',
+    length: 2,
+    variableLength: false,
+  },
+  {
+    code: AICode.SerialNumber,
+    description: 'Serial Number',
+    length: 20,
+    variableLength: true,
+  },
+  {
+    code: AICode.SecondaryDataFields,
+    description: 'Secondary Data Fields',
+    length: 29,
+    variableLength: true,
+  },
+  {
+    code: AICode.LotnumberN,
+    description: 'Lot number[n]',
+    length: 19,
+    variableLength: true,
+  },
+  {
+    code: AICode.AdditionalProductIdentification,
+    description: 'Additional Product Identification',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.CustomerPartNumber,
+    description: 'Customer Part Number',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.MadeToOrderVariationNumber,
+    description: 'Made-to-Order Variation Number',
+    length: 6,
+    variableLength: true,
+  },
+  {
+    code: AICode.SecondarySerialNumber,
+    description: 'Secondary Serial Number',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.ReferencetoSourceEntity,
+    description: 'Reference to SourceEntity',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.GlobalDocumentTypeIdentifier,
+    description: 'Global Document Type Identifier',
+    length: 17,
+    variableLength: true,
+  },
+  {
+    code: AICode.GLNExtensionComponent,
+    description: 'GLN Extension Component',
+    length: 20,
+    variableLength: true,
+  },
+  {
+    code: AICode.GlobalCouponNumberGCN,
+    description: 'Global Coupon Number GCN',
+    length: 25,
+    variableLength: true,
+  },
+  {
+    code: AICode.Countofitems,
+    description: 'Count of items',
+    length: 8,
+    variableLength: true,
+  },
+  {
+    code: AICode.ProductNetWeightKg,
+    description: 'Product Net Weight in kg',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductLength1stDimensionM,
+    description: 'Product Length/1st Dimension, in meters',
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductWidthDiameter2ndDimensionM,
+    description: 'Product Width/Diameter/2nd Dimension,in meters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductDepthThicknessHeight3rdDimensionM,
+    description: 'Product Depth/Thickness/Height/3rd Dimension,in meters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductAreaSqM,
+    description: 'Product Area,in square meters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductNetVolumeL,
+    description: 'Product Net Volume,in liters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductNetVolumeM,
+    description: 'Product Net Volume,in cubic meters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductNetWeightLbs,
+    description: 'Product Net Weight,in pounds',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductLength1stDimensionInch,
+    description: 'Product Length/1st Dimension,in inches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductLength1stDimensionFt,
+    description: 'Product Length/1st Dimension,in feet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductLength1stDimensionYd,
+    description: 'Product Length/1st Dimension,in yards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductWidthDiameter2ndDimensionIn,
+    description: 'Product Width/Diameter/2nd Dimension,in inches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductWidthDiameter2ndDimensionFt,
+    description: 'Product Width/Diameter/2nd Dimension,in feet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductWidthDiameter2ndDimensionYd,
+    description: 'Product Width/Diameter/2nd Dimension,in yards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductDepthThicknessHeight3rdDimensionIn,
+    description: 'Product Depth/Thickness/Height/3rd Dimension,in inches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductDepthThicknessHeight3rdDimensionFt,
+    description: 'Product Depth/Thickness/Height/3rd Dimension,in feet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductDepthThickness3rdDimensionYd,
+    description: 'Product Depth/Thickness/3rd Dimension,in yards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossWeightkg,
+    description: 'Container Gross Weight kg',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerLength1stDimensionM,
+    description: 'Container Length/1st Dimension Meters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerWidthDiameter2ndDimensionM,
+    description: 'Container Width/Diameter/2nd Dimension Meters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerDepthThickness3rdDimensionMeters,
+    description: 'Container Depth/Thickness/3rdDimension Meters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerAreaSquareMeters,
+    description: 'Container Area Square Meters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossVolumeL,
+    description: 'Container Gross Volume Liters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossVolumeCubicM,
+    description: 'Container Gross Volume CubicMeters',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossWeightLbs,
+    description: 'Container Gross Weight Pounds',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerLength1stDimensionIn,
+    description: 'Container Length1stDimension in inches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerLength1stDimensionFt,
+    description: 'Container Length/1stDimension,infeet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerLength1stDimensionYd,
+    description: 'Container Length/1stDimensionin,inyards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerWidthDiameter2ndDimensionIn,
+    description: 'Container Width/Diameter/2nd Dimension,in inches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerWidthDiameter2ndDimensionFt,
+    description: 'Container Width/Diameter/2nd Dimension,in feet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerWidthDiameter2ndDimensionYd,
+    description: 'Container Width/Diameter/2nd Dimension,in yards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerDepthThicknessHeight3rdDimensionIn,
+    description: 'Container Depth/Thickness/Height/3rd Dimension,in inches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerDepthThicknessHeight3rdDimensionFt,
+    description: 'Container Depth/Thickness/Height/3rd Dimension,in feet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerDepthThicknessHeight3rdDimensionY,
+    description: 'Container Depth/Thickness/Height/3rd Dimension,in yards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductAreaSqIn,
+    description: 'Product Area SquareInches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductAreaSqFt,
+    description: 'Product Area SquareFeet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductAreaSqY,
+    description: 'Product Area SquareYards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerAreaSqIn,
+    description: 'Container Area SquareInches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerAreaSqFt,
+    description: 'Container Area SquareFeet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerAreaSqY,
+    description: 'Container Area SquareYards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.NetWeightTroyOz,
+    description: 'Net Weight TroyOunces',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.NetWeightVolumeOz,
+    description: 'Net Weight/Volume Ounces',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductVolumeQuarts,
+    description: 'Product Volume Quarts',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductVolumeGallons,
+    description: 'Product Volume Gallons',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossVolumeQuarts,
+    description: 'Container Gross Volume Quarts',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossVolumeUSGallons,
+    description: 'ContainerGrossVolume U.S.Gallons',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductVolumeCubicInches,
+    description: 'ProductVolume CubicInches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductVolumeCubicFeet,
+    description: 'ProductVolume CubicFeet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ProductVolumeCubicYards,
+    description: 'ProductVolume CubicYards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossVolumeCubicInches,
+    description: 'ContainerGrossVolume CubicInches',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossVolumeCubicFeet,
+    description: 'ContainerGrossVolume CubicFeet',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.ContainerGrossVolumeCubicYards,
+    description: 'ContainerGrossVolume CubicYards',
+    fractional: true,
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.NumberofUnitsContained,
+    description: 'NumberofUnitsContained',
+    length: 8,
+    variableLength: true,
+  },
+  {
+    code: AICode.AmountPayableLocalCurrency,
+    description: 'Amount payable local currency}',
+    fractional: true,
+    length: 15,
+    variableLength: true,
+  },
+  {
+    code: AICode.AmountPayableISOCurrencyCode,
+    description: 'Amount payable with ISO currency code',
+    fractional: true,
+    length: 18,
+    variableLength: true,
+  },
+  {
+    code: AICode.AmountPayablePerSingleItemLocalCurrency,
+    description: 'Amount payable per single item local currency',
+    fractional: true,
+    length: 15,
+    variableLength: true,
+  },
+  {
+    code: AICode.AmountPayablePerSingleItemxWithISOcurrencycode,
+    description: 'Amount payable persingle itemx with ISO currency code',
+    fractional: true,
+    length: 18,
+    variableLength: true,
+  },
+  {
+    code: AICode.CustomerPurchaseOrderNumber,
+    description: 'Customer Purchase Order Number',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.ConsignmentNumber,
+    description: 'Consignment Number',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.BillofLadingNumber,
+    description: 'BillofLadingnumber',
+    length: 17,
+    variableLength: false,
+  },
+  {
+    code: AICode.RoutingCode,
+    description: 'Routing code',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.ShipToDeliverToLocationCodeGlobalLocationNumber,
+    description: 'ShipTo/DeliverToLocationCode GlobalLocationNumber',
+    length: 13,
+    variableLength: false,
+  },
+  {
+    code: AICode.BillToInvoiceLocationCodeGlobalLocationNumber,
+    description: 'BillTo/InvoiceLocationCode GlobalLocationNumber',
+    length: 13,
+    variableLength: false,
+  },
+  {
+    code: AICode.PurchaseFromLocationCodeGlobalLocationNumber,
+    description: 'PurchaseFromLocationCode GlobalLocationNumber',
+    length: 13,
+    variableLength: false,
+  },
+  {
+    code: AICode.ShipForDeliverForOrForwardToLocationCode,
+    description: 'Shipfor,Deliver for,or Forward to Location Code',
+    length: 13,
+    variableLength: false,
+  },
+  {
+    code: AICode.IdentificationOfAPhysicAllocation,
+    description: 'Identification of a physical location',
+    length: 13,
+    variableLength: false,
+  },
+  {
+    code: AICode.ShipToDeliverToPostalCodeSinglePostalAuthority,
+    description: 'ShipTo /DeliverTo PostalCode Single Postal Authority',
+    length: 20,
+    variableLength: true,
+  },
+  {
+    code: AICode.ShipToDeliverToPostalCodeISOCountryCode,
+    description: 'ShipTo / DeliverTo PostalCode ISO CountryCode',
+    length: 15,
+    variableLength: true,
+  },
+  {
+    code: AICode.CountryofOrigin,
+    description: 'Country of Origin',
+    length: 3,
+    variableLength: false,
+  },
+  {
+    code: AICode.CountryOrCountriesOfInitialProcessing,
+    description: 'Country or countries of initial processing',
+    length: 15,
+    variableLength: true,
+  },
+  {
+    code: AICode.CountryOfProcessing,
+    description: 'Country of processing',
+    length: 3,
+    variableLength: false,
+  },
+  {
+    code: AICode.CountryOfDisassembly,
+    description: 'Country of disassembly',
+    length: 3,
+    variableLength: false,
+  },
+  {
+    code: AICode.CountryOfFullProcessChain,
+    description: 'Country of full process chain',
+    length: 3,
+    variableLength: false,
+  },
+  {
+    code: AICode.NATOStockNumberNSN,
+    description: 'NATO Stock Number NSN',
+    length: 13,
+    variableLength: false,
+  },
+  {
+    code: AICode.UNECEMeatCarcassesAndCutsClassification,
+    description: 'UN/ECE Meat Carcasses and cuts classification',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.ExpirationDateAndTime,
+    description: 'expiration date and time',
+    length: 10,
+    variableLength: false,
+  },
+  {
+    code: AICode.ActivePotency,
+    description: 'Active Potency',
+    length: 4,
+    variableLength: true,
+  },
+  {
+    code: AICode.Processorapproval,
+    description: 'Processor approval',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.RollProductsWidthLengthCoreDiameterDirectionSplices,
+    description: 'Roll Products: Width/Length/CoreDiameter/Direction/Splices',
+    length: 14,
+    variableLength: false,
+  },
+  {
+    code: AICode.MobilePhoneIdentifier,
+    description: 'Mobile phone identifier',
+    length: 20,
+    variableLength: true,
+  },
+  {
+    code: AICode.GlobalReturnableAssetIdentifier,
+    description: 'Global ReturnableAssetIdentifier',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.GlobalIndividualAssetIdentifier,
+    description: 'Global IndividualAssetIdentifier',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.PriceperUnitofMeasure,
+    description: 'Price perUnitofMeasure',
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.IdentificationOfTheComponentsOfAnItem,
+    description: 'identification of the components of an item',
+    length: 18,
+    variableLength: false,
+  },
+  {
+    code: AICode.InternationalBankAccountNumber,
+    description: 'International Bank Account Number',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.DatetimeOfProduction,
+    description: 'Date/time of production',
+    length: 12,
+    variableLength: true,
+  },
+  {
+    code: AICode.GlobalServiceRelationshipNumber,
+    description: 'Global ServiceRelationshipNumber',
+    length: 18,
+    variableLength: false,
+  },
+  {
+    code: AICode.PaymentslipPreferenceNumber,
+    description: 'Payment slip preference number',
+    length: 25,
+    variableLength: true,
+  },
+  {
+    code: AICode.CouponExtendedCodeNumberSystemandOffer,
+    description: 'CouponExtendedCode: Number System and Offer',
+    length: 6,
+    variableLength: false,
+  },
+  {
+    code: AICode.CouponExtendedCodeNumberSystemOfferEndofOffer,
+    description: 'CouponExtendedCode: Number System,Offer,End of Offer',
+    length: 10,
+    variableLength: false,
+  },
+  {
+    code: AICode.CouponExtendedCodeNumberSystemPrecededBy0,
+    description: 'CouponExtendedCode: Number System preceded by 0',
+    length: 2,
+    variableLength: false,
+  },
+  {
+    code: AICode.CouponcodeIDNorthAmerica,
+    description: 'CouponcodeID NorthAmerica',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.ExtendedPackagingURL,
+    description: 'Extended Packaging URL',
+    length: 70,
+    variableLength: true,
+  },
+  {
+    code: AICode.MutuallyAgreedBetweenTradingPartners,
+    description: 'Mutually Agreed Between Trading Partners',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes91,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes92,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes93,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes94,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes95,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes96,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes97,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes98,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
+  {
+    code: AICode.InternalCompanyCodes99,
+    description: 'Internal Company Codes',
+    length: 30,
+    variableLength: true,
+  },
 ];
+
+export const APPLICATION_IDENTIFIERS: ApplicationIdentifier[] =
+  data.map(x => new ApplicationIdentifier(x.code, x.description, x.length, x.variableLength, x.fractional));

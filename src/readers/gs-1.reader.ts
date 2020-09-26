@@ -1,4 +1,6 @@
 import { BaseReader } from './base.reader';
+import { CONTROLCHARS } from '../config';
+import { AimCodes, Symbologies } from '../enums';
 import {
     IReaderConfiguration,
     IBarcodeValue,
@@ -6,7 +8,6 @@ import {
     BarcodeValue,
     APPLICATION_IDENTIFIERS,
 } from '../models';
-import { CONTROLCHARS, AimCodes, Symbologies } from '../config';
 
 import { AimParser } from '../utils';
 
@@ -32,11 +33,11 @@ export class GS1Reader extends BaseReader {
             this.tryValidate(value);
             const valWithoutId = AimParser.parseAimCode(
                 this.symbology,
-                sterilizedValue
+                sterilizedValue,
             );
             result.values = [].concat.apply(
                 [],
-                valWithoutId.split(DELIMITER).map(val => this.parseValues(val))
+                valWithoutId.split(DELIMITER).map(val => this.parseValues(val)),
             );
         } catch (ex) {
             result.success = false;

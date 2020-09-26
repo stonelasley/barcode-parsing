@@ -4,7 +4,7 @@ export abstract class BaseReader {
     constructor(
         protected _symbology: string,
         protected _validationExpression: RegExp,
-        protected _readerConfig: IReaderConfiguration
+        protected _readerConfig: IReaderConfiguration,
     ) {}
 
     public get configuration(): IReaderConfiguration {
