@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/stonelasley/barcode-parsing/compare/v1.3.0...v1.4.0) (2020-09-26)
+
+
+### Features
+
+* **AICode:** Application Identifier Enum ([b44d813](https://github.com/stonelasley/barcode-parsing/commit/b44d813))
+* **Code39Reader:** Parse embedded data into result ([e1896b3](https://github.com/stonelasley/barcode-parsing/commit/e1896b3))
+* **ParserConfig:** optionally turn on reader init messages ([770d138](https://github.com/stonelasley/barcode-parsing/commit/770d138))
+
 # [1.3.0](https://github.com/stonelasley/barcode-parsing/compare/v1.2.3...v1.3.0) (2019-04-14)
 
 
