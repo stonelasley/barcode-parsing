@@ -16,6 +16,7 @@
     "coverage": "jest --coverage",
     "prettier": "prettier --config .prettierrc --write \"{src,__{tests,mocks}__}/**/*.ts\"",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:fix": "tslint -c tslint.json --fix 'src/**/*.ts'",
     "release": "semantic-release"
   },
   "author": "stonelasley@github.com",

@@ -34,13 +34,13 @@ export class BarcodeParser {
 
     protected initReaders(
         readerTypes: string[],
-        configurations: IReaderConfiguration[]
+        configurations: IReaderConfiguration[],
     ) {
         this.readers = readerTypes.map(r => {
             let readerConfig: IReaderConfiguration;
             if (configurations.length > 0) {
                 const configs = configurations.filter(
-                    c => c !== undefined && r === c.symbology
+                    c => c !== undefined && r === c.symbology,
                 );
                 readerConfig = configs.pop();
             }

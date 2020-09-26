@@ -1,6 +1,6 @@
 import { BaseReader } from './base.reader';
 import { IBarcodeValue, IReaderConfiguration, BarcodeValue } from '../models';
-import { AimCodes, Symbologies } from '../config';
+import { AimCodes, Symbologies } from '../enums';
 import { AimParser } from '../utils';
 
 const REG: RegExp = /^[A-Z0-9* \-$%.+\/]{1,43}$/;

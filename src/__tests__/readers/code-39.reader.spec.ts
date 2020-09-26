@@ -1,6 +1,6 @@
 import { IReaderConfiguration } from '../../models/reader.configuration';
 import { Code39Reader } from '../../readers/code-39.reader';
-import { AimCodes } from '../../config/aim-codes';
+import { AimCodes } from '../../enums';
 
 export class TestClass extends Code39Reader {
     public decode(val: any): any {

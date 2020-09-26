@@ -1,5 +1,5 @@
 import { IBarcodeValue, BarcodeValue } from '../../models';
-import { Symbologies } from '../../config/symbologies';
+import { Symbologies } from '../../enums';
 
 describe('BarcodeValue', () => {
     let classUnderTest: IBarcodeValue;

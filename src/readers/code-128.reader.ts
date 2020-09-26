@@ -6,7 +6,8 @@ import {
     ApplicationIdentifier,
     BarcodeValue,
 } from '../models';
-import { AimCodes, CONTROLCHARS, Symbologies } from '../config';
+import { CONTROLCHARS } from '../config';
+import { AimCodes, Symbologies } from '../enums';
 import { AimParser } from '../utils';
 
 const DELIMITER: string = ' ';
@@ -31,11 +32,11 @@ export class Code128Reader extends BaseReader {
             this.tryValidate(value);
             const valWithoutId = AimParser.parseAimCode(
                 this.symbology,
-                sterilizedValue
+                sterilizedValue,
             );
             result.values = [].concat.apply(
                 [],
-                valWithoutId.split(DELIMITER).map(val => this.parseValues(val))
+                valWithoutId.split(DELIMITER).map(val => this.parseValues(val)),
             );
         } catch (ex) {
             result.success = false;

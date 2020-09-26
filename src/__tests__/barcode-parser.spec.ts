@@ -1,6 +1,6 @@
 import { BarcodeParser } from '../barcode-parser';
-import { IParserConfiguration, IBarcodeValue, IReaderConfiguration } from '../models';
-import { Symbologies } from '../config';
+import { IBarcodeValue, IParserConfiguration, IReaderConfiguration } from '../models';
+import { Symbologies } from '../enums';
 
 class TestClass extends BarcodeParser {
     constructor(config: IParserConfiguration) {
@@ -23,14 +23,14 @@ describe('BarcodeParser', () => {
     describe('parse', () => {
         beforeEach(() => {
             config = {
-                readers: Symbologies.All,
                 readerConfigurations: [],
+                readers: Symbologies.All,
             };
 
             classUnderTest = new TestClass(config);
         });
 
-        it("should return IBarcodeValue with errorMessage as 'No Reader Found'", () => {
+        it('should return IBarcodeValue with errorMessage as \'No Reader Found\'', () => {
             const result: IBarcodeValue = classUnderTest.parse('invalid');
 
             expect(result.errorMessage).toBe('No Reader Found');

@@ -32,6 +32,6 @@ export class ApplicationIdentifier {
         private _description: string,
         private _length: number,
         private _variableLength: boolean,
-        private frac: boolean = false
+        private frac: boolean = false,
     ) {}
 }
