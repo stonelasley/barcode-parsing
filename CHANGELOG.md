@@ -3,6 +3,15 @@
 
 ### Features
 
+* **AICode:** Application Identifier Enum ([b44d813](https://github.com/stonelasley/barcode-parsing/commit/b44d81313b37d6a1af3c706759402ab2a6041f3c))
+* **Code39Reader:** Parse embedded data into result ([e1896b3](https://github.com/stonelasley/barcode-parsing/commit/e1896b30d51cb032ff358fc97247304d248f9eee))
+* **ParserConfig:** optionally turn on reader init messages ([770d138](https://github.com/stonelasley/barcode-parsing/commit/770d1381025eec773ec2d819338c50dd8c1a9c6e))
+
+# [1.4.0](https://github.com/stonelasley/barcode-parsing/compare/v1.3.0...v1.4.0) (2020-09-26)
+
+
+### Features
+
 * **AICode:** Application Identifier Enum ([b44d813](https://github.com/stonelasley/barcode-parsing/commit/b44d813))
 * **Code39Reader:** Parse embedded data into result ([e1896b3](https://github.com/stonelasley/barcode-parsing/commit/e1896b3))
 * **ParserConfig:** optionally turn on reader init messages ([770d138](https://github.com/stonelasley/barcode-parsing/commit/770d138))
