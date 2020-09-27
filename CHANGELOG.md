@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/stonelasley/barcode-parsing/compare/v1.4.0...v2.0.0) (2020-09-27)
+
+
+### Code Refactoring
+
+* **barcode-value:** Remove SystemValue, SystemId, and IsWeightBased properties ([9784eb4](https://github.com/stonelasley/barcode-parsing/commit/9784eb498ea23b17c0aa4f5ed925c750b4380689))
+
+
+### BREAKING CHANGES
+
+* **barcode-value:** SystemValue, SystemId, and IsWeightBased have been removed from BarcodeValue.
+
 # [1.4.0](https://github.com/stonelasley/barcode-parsing/compare/v1.3.0...v1.4.0) (2020-09-26)
 
 
