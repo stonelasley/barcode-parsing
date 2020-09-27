@@ -20,7 +20,7 @@ export enum AICode {
   GlobalDocumentTypeIdentifier= '253',
   GLNExtensionComponent= '254',
   GlobalCouponNumberGCN= '255',
-  Countofitems= '30',
+  CountOfItems= '30',
   ProductNetWeightKg= '310',
   ProductLength1stDimensionM= '311',
   ProductWidthDiameter2ndDimensionM= '312',
