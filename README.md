@@ -16,70 +16,100 @@ this package has a fairly narrow scope and is used in conjunction with an [Ionic
             Symbologies.ITF8,
             Symbologies.GTINX
         ],
-        readerConfigurations: []
+        readerConfigurations: [
+            {
+              symbology: Symbologies.Code39,
+              values: [
+                {
+                  length: 2,
+                  start: 0,
+                  valueType: 'foo'
+                },
+                {
+                  length: 3,
+                  start: 2,
+                  valueType: 'bar'
+                }
+              ]
+            }
+        ]
     });
 
-    barcodeParser.parse(']I010734074010258');
-    barcodeParser.parse(']C100111111111111111111101234 30100 310600100');
-    barcodeParser.parse(']Z00000000');
-```
-** please note the input above with spaces would never be valid from a scanner, the spaces would instead be an invisible [group seperator](http://www.theasciicode.com.ar/ascii-control-characters/group-separator-ascii-code-29.html). This library replaces the GS character with a space before parsing so it works for both illustrative purposes and testing. 
 
- ### Results 
 
-`]I010734074010258`
+    const itfResult = barcodeParser.parse(']I010734074010258');
+    // {
+    //   symbology: 'itf_14',
+    //   rawValue: ']I010734074010258',
+    //   checkDigit: 8,
+    //   success: true,
+    //   values: '1073407401025'
+    // }
 
-```json
-    "barcodeVal": {
-      "_symbology": "itf_14",
-      "_rawValue": "]I010734074010258",
-      "_checkDigit": 8,
-      "_success": true,
-      "_values": "1073407401025"
+    // the below input with spaces would never be valid from a scanner, the spaces would instead be an invisible [group seperator](http://www.theasciicode.com.ar/ascii-control-characters/group-separator-ascii-code-29.html). This library replaces the GS character with a space before parsing so it works for both illustrative purposes and testing. 
+    const code128Result = barcodeParser.parse(']C100111111111111111111101234 30100 310600100');
+    code128Result.pluck(AICode.BatchLot) // '1234'
+    code128Result.pluck(AICode.SerialShippingContainerCode) // '111111111111111111'
+    code128Result.pluck(AICode.CountOfItems) // '100'
+    code128Result.pluck(AICode.ProductNetWeightKg) // .0001
+
+    // {
+    //   symbology: 'gs1_128',
+    //   rawValue: ']C100111111111111111111101234 30100 310600100',
+    //   checkDigit: -1,
+    //   success: true,
+    //   values: [
+    //     {
+    //       code: '10',
+    //       value: '1234'
+    //     },
+    //     {
+    //       code: '00',
+    //       value: '111111111111111111'
+    //     },
+    //     {
+    //       code: '30',
+    //       value: '100'
+    //     },
+    //     {
+    //       'code': '310',
+    //       'value': 0.0001
+    //     }
+    //   ]
+    // }  
+
+    const code39Result = barcodeParser.parse(']A01234567777777');
+    code39Result.success // true
+    code39Result.errorMessage // undefined
+    code39Result.pluck('foo') // '12'
+    code39Result.pluck('bar') // '345'
+    code39Result.pluck('bizz') // undefined
+    {
+      symbology: 'code_39',
+      rawValue: ']A01234567777777',
+      checkDigit: -1,
+      success: true,
+      values: [
+        {
+          code: 'foo',
+          value: '12'
+        },
+        {
+          code: 'bar',
+          value: '345'
+        }
+      ]
     }
+
+    const invalidInputResult = barcodeParser.parse(']Z00000000');
+    invalidInputResult.success // false
+    invalidInputResult.errorMessage // 'No Reader Found'
+    // {
+    //   symbology: null,
+    //   rawValue: ']Z00000000',
+    //   checkDigit: -1,
+    //   success: false,
+    //   values: [],
+    //   errorMessage: 'No Reader Found'
+    // }
 ```
-
-`]C100111111111111111111101234 30100 310600100`
-```json
- "barcodeVal": {
-    "_symbology": "gs1_128",
-    "_rawValue": "]C100111111111111111111101234 30100 310600100",
-    "_checkDigit": -1,
-    "_success": true,
-    "_values": [
-      {
-        "code": "10",
-        "value": "1234"
-      },
-      {
-        "code": "00",
-        "value": "111111111111111111"
-      },
-      {
-        "code": "30",
-        "value": "100"
-      },
-      {
-        "code": "310",
-        "value": 0.0001
-      }
-    ]
-}
-```
-
-`]Z00000000`
-```json
-  "barcodeVal": {
-    "_symbology": null,
-    "_rawValue": "]Z00000000",
-    "_checkDigit": -1,
-    "_success": false,
-    "_values": [],
-    "_errorMessage": "No Reader Found"
-  }
-```
-
-#### Roadmap
-
- - This package as it stands is very much a "good enough" for what we needed it for but it needs a little work before it can be used easily in an arbitrary project.
- - Reader Specific Configurations. See Code39. 

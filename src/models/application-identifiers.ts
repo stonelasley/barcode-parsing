@@ -129,7 +129,7 @@ const data = [
     variableLength: true,
   },
   {
-    code: AICode.Countofitems,
+    code: AICode.CountOfItems,
     description: 'Count of items',
     length: 8,
     variableLength: true,

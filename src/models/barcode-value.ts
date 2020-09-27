@@ -1,5 +1,5 @@
 import { IBarcodeValue } from './ibarcode-value';
-import { Symbologies } from '../enums';
+import { AICode, Symbologies } from '../enums';
 
 export class BarcodeValue implements IBarcodeValue {
     private _values: any;
@@ -60,31 +60,9 @@ export class BarcodeValue implements IBarcodeValue {
         this._checkDigit = value;
     }
 
-    public get isWeightBased(): boolean {
-        const checkOne = this.symbology === Symbologies.GTIN13;
-        const checkTwo = typeof this.values;
-        const checkThree = this.values.slice(0, 1) === '2';
-        return checkOne && checkTwo === 'string' && checkThree;
-    }
-
-    public get systemId(): string {
-        if (this.isWeightBased === true) {
-            return this._values.substring(1, 6);
-        }
-        return null;
-    }
-
-    public get systemMeasure(): number {
-        if (this.isWeightBased === true) {
-            return parseFloat(this._values.substring(7, 12)) / 100;
-        }
-        return null;
-    }
-    public pluck(valueKey: string): any {
+    public pluck(valueKey: string | AICode): any {
         if (this.values !== undefined && this.values instanceof Array) {
-            const result = this.values.filter((r: any) => {
-                return r.code === valueKey;
-            });
+            const result = this.values.filter(r => r.code === valueKey);
             if (result[0]) {
                 return result[0].value;
             }

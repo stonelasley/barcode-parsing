@@ -12,7 +12,7 @@ export class TestClass extends Code39Reader {
     }
 }
 describe('code39Reader', () => {
-    let config = {} as IReaderConfiguration;
+    const config = {} as IReaderConfiguration;
     let classUnderTest: TestClass;
 
     const decodeValues: string[] = [
@@ -89,7 +89,7 @@ describe('code39Reader', () => {
                 expect.arrayContaining([
                     { code: 'foo', value: '12' },
                     { code: 'bar', value: '345' },
-                ])
+                ]),
             );
         });
     });

@@ -1,7 +1,7 @@
 {
   "name": "barcode-parser",
   "version": "1.1.1",
-  "description": "This project started out as a straight port of the Quagga project - https://serratus.github.io/quaggaJS. - to typescript however it has significantly diverged.",
+  "description": "This project started out as a Typescript port of the Quagga project - https://serratus.github.io/quaggaJS. - but that direction has diverged greatly. This library does not read barcodes but rather parses the value returned by a dedicated barcode scanner.",
   "repository": "git@github.com:stonelasley/barcode-parsing.git",
   "typings": "lib/index.d.ts",
   "main": "lib/index.js",
@@ -17,6 +17,8 @@
     "prettier": "prettier --config .prettierrc --write \"{src,__{tests,mocks}__}/**/*.ts\"",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:fix": "tslint -c tslint.json --fix 'src/**/*.ts'",
+    "ci": "yarn lint && yarn test",
+    "ci:afterSuccess": "yarn coverage && yarn release",
     "release": "semantic-release"
   },
   "author": "stonelasley@github.com",

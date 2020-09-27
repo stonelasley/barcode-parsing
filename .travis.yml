@@ -13,7 +13,6 @@ matrix:
 install:
   - yarn 
 script:
-  - yarn test 
+  - yarn ci 
 after_success:
-  - yarn coverage 
-  - yarn release
+  - yarn ci:afterSuccess 

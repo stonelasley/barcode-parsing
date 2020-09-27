@@ -20,7 +20,7 @@ export class BarcodeParser {
         this.initReaders(
             config.readers,
             config.readerConfigurations,
-            config.verbose
+            config.verbose,
         );
     }
 
@@ -44,13 +44,13 @@ export class BarcodeParser {
     protected initReaders(
         readerTypes: string[],
         configurations: IReaderConfiguration[],
-        verbose: boolean = false
+        verbose: boolean = false,
     ) {
         this.readers = readerTypes.map(r => {
             let readerConfig: IReaderConfiguration;
             if (configurations.length > 0) {
                 const configs = configurations.filter(
-                    c => c !== undefined && r === c.symbology
+                    c => c !== undefined && r === c.symbology,
                 );
                 readerConfig = configs.pop();
             }
@@ -60,9 +60,11 @@ export class BarcodeParser {
         });
 
         if (verbose) {
+            /* tslint:disable */
             this._readers.forEach(reader =>
-                console.log('Reader Initialized: ', reader)
+                console.log('Reader Initialized: ', reader),
             );
+            /* tslint:enable */
         }
     }
 }
