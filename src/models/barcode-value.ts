@@ -1,5 +1,5 @@
 import { IBarcodeValue } from './ibarcode-value';
-import { AICode, Symbologies } from '../enums';
+import { AICode } from '../enums';
 
 export class BarcodeValue implements IBarcodeValue {
     private _values: any;

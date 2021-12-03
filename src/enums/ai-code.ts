@@ -98,6 +98,7 @@ export enum AICode {
     UNECEMeatCarcassesAndCutsClassification = '7002',
     ExpirationDateAndTime = '7003',
     ActivePotency = '7004',
+    FirstFreezeDate= '7006',
     HarvestDate = '7007',
     Processorapproval = '703n',
     RollProductsWidthLengthCoreDiameterDirectionSplices = '8001',

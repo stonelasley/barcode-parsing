@@ -652,6 +652,12 @@ const data = [
     variableLength: true,
   },
   {
+    code: AICode.FirstFreezeDate,
+    description: 'First Freeze Date',
+    length: 6,
+    variableLength: false,
+  },
+  {
     code: AICode.HarvestDate,
     description: 'Harvest Date',
     length: 12,
