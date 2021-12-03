@@ -652,6 +652,12 @@ const data = [
     variableLength: true,
   },
   {
+    code: AICode.HarvestDate,
+    description: 'Harvest Date',
+    length: 12,
+    variableLength: true,
+  },
+  {
     code: AICode.Processorapproval,
     description: 'Processor approval',
     length: 30,

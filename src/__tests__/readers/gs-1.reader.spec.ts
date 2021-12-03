@@ -242,6 +242,12 @@ describe('Gs1Reader', () => {
                 String.fromCharCode(29),
             ),
         );
+        const actual4 = classUnderTest.decode(
+            ']C102084135560009503703 700720211024'.replace(
+                ' ',
+                String.fromCharCode(29),
+            ),
+        );
 
         expect(actual.values).toContainEqual({
             code: '21',
@@ -283,6 +289,16 @@ describe('Gs1Reader', () => {
         expect(actual3.values).toContainEqual({
             code: '10',
             value: 'ES003472002',
+        });
+
+        expect(actual4.values).toContainEqual({
+            code: '02',
+            value: '08413556000950',
+        });
+        expect(actual4.values).toContainEqual({ code: '37', value: '03' });
+        expect(actual4.values).toContainEqual({
+            code: '7007',
+            value: '20211024',
         });
     });
 });
