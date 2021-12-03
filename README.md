@@ -14,7 +14,7 @@ this package has a fairly narrow scope and is used in conjunction with an [Ionic
         readers: [
             Symbologies.Code39,
             Symbologies.ITF8,
-            Symbologies.GTINX
+            ...Symbologies.GTINX // This spreads to support all GTIN lengths 8-14
         ],
         readerConfigurations: [
             {
