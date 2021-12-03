@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/stonelasley/barcode-parsing/compare/v2.0.0...v2.1.0) (2021-12-03)
+
+
+### Features
+
+* **gs1:** HarvestDate Application Identifier ([270845a](https://github.com/stonelasley/barcode-parsing/commit/270845aa2acf46de3642f2cde96d4abbdea2e1d8))
+
 # [2.0.0](https://github.com/stonelasley/barcode-parsing/compare/v1.4.0...v2.0.0) (2020-09-27)
 
 
