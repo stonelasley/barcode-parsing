@@ -1,6 +1,6 @@
 {
   "name": "barcode-parser",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "This project started out as a Typescript port of the Quagga project - https://serratus.github.io/quaggaJS. - but that direction has diverged greatly. This library does not read barcodes but rather parses the value returned by a dedicated barcode scanner.",
   "repository": "git@github.com:stonelasley/barcode-parsing.git",
   "typings": "lib/index.d.ts",

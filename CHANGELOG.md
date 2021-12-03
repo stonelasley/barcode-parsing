@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/stonelasley/barcode-parsing/compare/v2.1.0...v2.2.0) (2021-12-03)
+
+
+### Features
+
+* **GS1Reader:** Support First Freeze Date AI ([cfa5022](https://github.com/stonelasley/barcode-parsing/commit/cfa5022ca9632e536942544c0e2f6dcac7b091d0))
+
 # [2.1.0](https://github.com/stonelasley/barcode-parsing/compare/v2.0.0...v2.1.0) (2021-12-03)
 
 
