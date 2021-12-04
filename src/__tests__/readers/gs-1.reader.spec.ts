@@ -34,22 +34,18 @@ describe('Gs1Reader', () => {
 
     describe('validate', () => {
         test('should validate identifier is prefixed', () => {
-            /* tslint:disable */
-            expect(classUnderTest.validate('ABCDEFG')).toBe(false);
-            expect(classUnderTest.validate('C1')).toBe(false);
-            expect(classUnderTest.validate(']]C1')).toBe(false);
-            expect(classUnderTest.validate(']C1A')).toBe(true);
-            expect(classUnderTest.validate(']C1111111111111111111111111')).toBe(
-                true
+            expect(classUnderTest.testValidate('ABCDEFG')).toBe(false);
+            expect(classUnderTest.testValidate('C1')).toBe(false);
+            expect(classUnderTest.testValidate(']]C1')).toBe(false);
+            expect(classUnderTest.testValidate(']C1A')).toBe(true);
+            expect(classUnderTest.testValidate(']C1111111111111111111111111')).toBe(
+                true,
             );
-            /* tslint:enable */
         });
 
         test('should validate value is at least 1 character', () => {
-            /* tslint:disable */
-            expect(classUnderTest['validate'](']C1')).toBe(false);
-            expect(classUnderTest['validate'](']C1A')).toBe(true);
-            /* tslint:enable */
+            expect(classUnderTest.testValidate(']C1')).toBe(false);
+            expect(classUnderTest.testValidate(']C1A')).toBe(true);
         });
     });
 
@@ -176,9 +172,7 @@ describe('Gs1Reader', () => {
                     'Payment slip preference number',
                 );
                 expect(actual.length).toBe(25);
-                /* tslint:disable */
                 expect(actual.variableLength).toBe(true);
-                /* tslint:enable */
             });
         });
     });
