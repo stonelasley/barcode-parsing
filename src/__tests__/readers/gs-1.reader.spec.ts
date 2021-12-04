@@ -140,9 +140,7 @@ describe('Gs1Reader', () => {
                 expect(actual.code).toBe('01');
                 expect(actual.description).toBe('Global Trade Item Number');
                 expect(actual.length).toBe(14);
-                /* tslint:disable */
                 expect(actual.variableLength).toBe(false);
-                /* tslint:enable */
             });
         });
 
@@ -155,9 +153,7 @@ describe('Gs1Reader', () => {
                 expect(actual.code).toBe('241');
                 expect(actual.description).toBe('Customer Part Number');
                 expect(actual.length).toBe(30);
-                /* tslint:disable */
                 expect(actual.variableLength).toBe(true);
-                /* tslint:enable */
             });
         });
 
