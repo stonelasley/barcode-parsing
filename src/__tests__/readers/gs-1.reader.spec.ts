@@ -22,6 +22,7 @@ export class Tester extends GS1Reader {
 describe('Gs1Reader', () => {
     let config: IReaderConfiguration;
     let classUnderTest: Tester;
+    let adHocAi: ApplicationIdentifier;
 
     beforeEach(() => {
         config = {
@@ -29,27 +30,25 @@ describe('Gs1Reader', () => {
             identifier: ']C1',
         } as IReaderConfiguration;
 
+            // 7009 may be valid somtime in the future
+        adHocAi = new ApplicationIdentifier('7009', 'My Custom AI', 6, true);
         classUnderTest = new Tester(config);
     });
 
     describe('validate', () => {
         test('should validate identifier is prefixed', () => {
-            /* tslint:disable */
-            expect(classUnderTest.validate('ABCDEFG')).toBe(false);
-            expect(classUnderTest.validate('C1')).toBe(false);
-            expect(classUnderTest.validate(']]C1')).toBe(false);
-            expect(classUnderTest.validate(']C1A')).toBe(true);
-            expect(classUnderTest.validate(']C1111111111111111111111111')).toBe(
-                true
+            expect(classUnderTest.testValidate('ABCDEFG')).toBe(false);
+            expect(classUnderTest.testValidate('C1')).toBe(false);
+            expect(classUnderTest.testValidate(']]C1')).toBe(false);
+            expect(classUnderTest.testValidate(']C1A')).toBe(true);
+            expect(classUnderTest.testValidate(']C1111111111111111111111111')).toBe(
+                true,
             );
-            /* tslint:enable */
         });
 
         test('should validate value is at least 1 character', () => {
-            /* tslint:disable */
-            expect(classUnderTest['validate'](']C1')).toBe(false);
-            expect(classUnderTest['validate'](']C1A')).toBe(true);
-            /* tslint:enable */
+            expect(classUnderTest.testValidate(']C1')).toBe(false);
+            expect(classUnderTest.testValidate(']C1A')).toBe(true);
         });
     });
 
@@ -144,9 +143,7 @@ describe('Gs1Reader', () => {
                 expect(actual.code).toBe('01');
                 expect(actual.description).toBe('Global Trade Item Number');
                 expect(actual.length).toBe(14);
-                /* tslint:disable */
                 expect(actual.variableLength).toBe(false);
-                /* tslint:enable */
             });
         });
 
@@ -159,9 +156,7 @@ describe('Gs1Reader', () => {
                 expect(actual.code).toBe('241');
                 expect(actual.description).toBe('Customer Part Number');
                 expect(actual.length).toBe(30);
-                /* tslint:disable */
                 expect(actual.variableLength).toBe(true);
-                /* tslint:enable */
             });
         });
 
@@ -176,10 +171,18 @@ describe('Gs1Reader', () => {
                     'Payment slip preference number',
                 );
                 expect(actual.length).toBe(25);
-                /* tslint:disable */
                 expect(actual.variableLength).toBe(true);
-                /* tslint:enable */
             });
+        });
+
+        test('should get ad hoc Ai', () => {
+            config.ai = adHocAi;
+            const { code, description, length, variableLength } = adHocAi;
+            const actual = classUnderTest.testGetAi(code);
+            expect(actual.code).toBe(code);
+            expect(actual.description).toBe(description);
+            expect(actual.length).toBe(length);
+            expect(actual.variableLength).toBe(variableLength);
         });
     });
 
@@ -306,4 +309,44 @@ describe('Gs1Reader', () => {
             value: '210101',
         });
     });
+
+    test('should parse adhoc', () => {
+        config.ai = adHocAi;
+        const actual = classUnderTest.decode(
+            `]C1019628329083134011150523310200059421145143242042 ${adHocAi.code}123456`,
+        );
+        const actual2 = classUnderTest.decode(
+            `]C10208413556000950${adHocAi.code}1234563703 10ES003472002`,
+        );
+
+        expect(actual.values).toContainEqual({
+            code: '21',
+            value: '145143242042',
+        });
+        expect(actual.values).toContainEqual({ code: '310', value: 5.94 });
+        expect(actual.values).toContainEqual({ code: '11', value: '150523' });
+        expect(actual.values).toContainEqual({
+            code: '01',
+            value: '96283290831340',
+        });
+        expect(actual.values).toContainEqual({
+            code: adHocAi.code,
+            value: '123456',
+        });
+
+        expect(actual2.values).toContainEqual({
+            code: '02',
+            value: '08413556000950',
+        });
+        expect(actual2.values).toContainEqual({ code: '37', value: '03' });
+        expect(actual2.values).toContainEqual({
+            code: '10',
+            value: 'ES003472002',
+        });
+        expect(actual2.values).toContainEqual({
+            code: adHocAi.code,
+            value: '123456',
+        });
+    });
+
 });

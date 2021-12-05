@@ -59,9 +59,7 @@ export class GS1Reader extends BaseReader {
         let codeLength = 2;
         while (ai === null && codeLength < 5) {
             const code = value.substr(0, codeLength);
-            const ais = APPLICATION_IDENTIFIERS.filter(x => {
-                return x.code === code;
-            });
+            const ais = this.aiList.filter(x => x.code === code);
             if (ais.length > 0) {
                 ai = ais[0];
             } else {
@@ -99,5 +97,11 @@ export class GS1Reader extends BaseReader {
         vals.push(this.parseValue(ai, input));
 
         return vals;
+    }
+
+    protected get aiList(): ApplicationIdentifier[] {
+        return (this.configuration?.ai != null)
+            ? [...APPLICATION_IDENTIFIERS, this.configuration?.ai]
+            : APPLICATION_IDENTIFIERS;
     }
 }

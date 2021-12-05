@@ -1,3 +1,4 @@
+import { ApplicationIdentifier } from '.';
 import { IEmbeddedData } from './embedded-data';
 
 export interface IReaderConfiguration {
@@ -5,4 +6,5 @@ export interface IReaderConfiguration {
     delimiter?: string;
     identifier?: string;
     values?: IEmbeddedData[];
+    ai?: ApplicationIdentifier;
 }
