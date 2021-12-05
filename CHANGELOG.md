@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/stonelasley/barcode-parsing/compare/v2.2.0...v2.3.0) (2021-12-05)
+
+
+### Features
+
+* **Gs1Reader:** allow ad hoc Ai to be passed on reader configuration ([e64a7a5](https://github.com/stonelasley/barcode-parsing/commit/e64a7a5cd75db960d13c1ae20dd2a7c523ab9150)), closes [#44](https://github.com/stonelasley/barcode-parsing/issues/44)
+
 # [2.2.0](https://github.com/stonelasley/barcode-parsing/compare/v2.1.0...v2.2.0) (2021-12-03)
 
 
